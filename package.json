@@ -14,6 +14,8 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0-next.90",
 		"@sveltejs/kit": "^1.0.0-next.587",
+		"@types/mapbox__mapbox-sdk": "^0.13.4",
+		"@types/mapbox-gl": "^2.7.10",
 		"autoprefixer": "^10.4.13",
 		"postcss": "^8.4.20",
 		"prettier": "^2.8.0",
@@ -28,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@mapbox/mapbox-sdk": "^0.14.0",
 		"mapbox-gl": "^2.11.1"
 	}
 }
