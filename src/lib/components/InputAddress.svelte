@@ -2,6 +2,10 @@
 	import 'mapbox-gl/dist/mapbox-gl.css';
 	import mapboxgl from 'mapbox-gl';
 	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+
+
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoiZGFuaWxrYTI3MTIiLCJhIjoiY2xiamFndWc2MDJoazNwcXZnaXZoNm9hYSJ9.lAMLaj7C67amMgE1yWU_WA';
 	onMount(() => {
@@ -107,4 +111,4 @@
 </script>
 
 
-<div id="map" class="h-[50vh]" />
+<div transition:slide="{{delay: 250, duration: 300, easing: quintOut }}" id="map" class="h-[50vh]" />

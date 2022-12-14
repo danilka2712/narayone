@@ -1,7 +1,6 @@
 <script lang="ts">
 	import InputAddress from '$lib/components/InputAddress.svelte';
 	import carModel from './carModel.json';
-
 	function brands() {
 		return carModel.map((car) => car.brand);
 	}
