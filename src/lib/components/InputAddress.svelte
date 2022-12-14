@@ -111,4 +111,4 @@
 </script>
 
 
-<div transition:slide="{{delay: 250, duration: 300, easing: quintOut }}" id="map" class="h-[50vh]" />
+<div transition:slide="{{delay: 250, duration: 2000, easing: quintOut }}" id="map" class="bg-[#EEEEEE] h-[50vh]" />
