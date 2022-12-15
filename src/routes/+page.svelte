@@ -1,4 +1,6 @@
 <script>
+	import { fade } from 'svelte/transition';
+
 	const items = [
 		{
 			name: 'Эвакуатор',
@@ -27,7 +29,7 @@
 	];
 </script>
 
-<div class="px-5">
+<div transition:fade={{ delay: 1000, duration: 100 }} class="px-5">
 	<div class=" bg-[#5BC43A] h-44 border-[#e8e8e8]/75 border rounded-xl">
 		<img class="object-cover rounded-xl w-full h-full" src="padarki.svg" alt="" />
 	</div>

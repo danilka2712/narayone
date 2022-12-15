@@ -1,6 +1,8 @@
 <script lang="ts">
 	import InputAddress from '$lib/components/InputAddress.svelte';
 	import carModel from './carModel.json';
+	import { fade } from 'svelte/transition';
+
 	function brands() {
 		return carModel.map((car) => car.brand);
 	}
@@ -18,7 +20,7 @@
 	let hidden = false;
 </script>
 
-<div class="px-5 mb-12">
+<div transition:fade={{ delay: 1000, duration: 500 }} class="px-5 mb-12">
 	<div>
 		<h1 class=" font-bold text-xl my-4 mb-7">Заказать эвакуатор</h1>
 	</div>
