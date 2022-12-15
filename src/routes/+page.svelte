@@ -4,7 +4,7 @@
 			name: 'Эвакуатор',
 			description: 'Доставим ваш автомобиль в любой точку России',
 			img: 'car3.svg',
-			href: '/towtruck'
+			href: '/evakuator'
 		},
 		{
 			name: 'Грузоперевозка',

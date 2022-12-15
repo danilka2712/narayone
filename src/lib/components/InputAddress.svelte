@@ -5,7 +5,6 @@
 	import { slide } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
-
 	mapboxgl.accessToken =
 		'pk.eyJ1IjoiZGFuaWxrYTI3MTIiLCJhIjoiY2xiamFndWc2MDJoazNwcXZnaXZoNm9hYSJ9.lAMLaj7C67amMgE1yWU_WA';
 	onMount(() => {
@@ -110,5 +109,15 @@
 	}
 </script>
 
-
-<div transition:slide="{{delay: 250, duration: 3000, easing: quintOut }}" id="map" class="bg-[#EEEEEE] h-[50vh]" />
+<div
+	transition:slide={{ delay: 250, duration: 3000, easing: quintOut }}
+	id="map"
+	class="bg-[#EEEEEE] relative h-[50vh]"
+>
+	<div class="">
+		<button
+			class=" left-2 w-[95%] absolute bottom-2 z-10 bg-green-500 rounded-xl text-white p-4  "
+			on:click={driverFrom}>Выбор</button
+		>
+	</div>
+</div>
