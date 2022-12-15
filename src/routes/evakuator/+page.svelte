@@ -20,7 +20,7 @@
 	let hidden = false;
 </script>
 
-<div transition:fade={{ delay: 1000, duration: 500 }} class="px-5 mb-12">
+<div  class="px-5 mb-12">
 	<div>
 		<h1 class=" font-bold text-xl my-4 mb-7">Заказать эвакуатор</h1>
 	</div>
