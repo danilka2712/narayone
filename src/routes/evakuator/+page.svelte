@@ -1,7 +1,7 @@
 <script lang="ts">
 	import InputAddress from '$lib/components/InputAddress.svelte';
 	import carModel from './carModel.json';
-	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
 
 	function brands() {
 		return carModel.map((car) => car.brand);
@@ -20,7 +20,7 @@
 	let hidden = false;
 </script>
 
-<div  class="px-5 mb-12">
+<div class="px-5 mb-12">
 	<div>
 		<h1 class=" font-bold text-xl my-4 mb-7">Заказать эвакуатор</h1>
 	</div>
@@ -43,13 +43,16 @@
 			<button on:click={() => (hidden = !hidden)} class=" absolute p-4 text-[#767676] right-0"
 				>карта</button
 			>
-			<input
-				placeholder="Лукашевича 25"
-				class="p-4 border-[#e8e8e8]/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
-				type="text"
-				name=""
-				id=""
-			/>
+			<form action="">
+				<input
+					placeholder="Лукашевича 25"
+					class="p-4 border-[#e8e8e8]/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
+					type="text"
+					name="address"
+					id=""
+					autocomplete="address-line1"
+				/>
+			</form>
 		</div>
 		<div class="">
 			<input
