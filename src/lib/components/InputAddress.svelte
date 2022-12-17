@@ -144,9 +144,11 @@
 {#if hidden}
 	<div id="map" class="bg-[#EEEEEE] relative h-[50vh]">
 		{#if number >= 1}
-			<button class=" absolute bottom-3 bg-[#5BC43A] rounded-xl p-4 z-10" on:click={() => sumbit()}
+		<div class=" absolute bottom-2 z-10 w-full px-4">
+			<button class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10" on:click={() => sumbit()}
 				>Выбрать точку отправления</button
 			>
+		</div>
 		{:else if number === 0}
 			<button
 				class=" absolute bottom-3 bg-[#5BC43A] rounded-xl p-4 z-10"
