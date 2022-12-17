@@ -1,40 +1,63 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { dataset_dev } from 'svelte/internal';
-
+	import maplibregl from 'maplibre-gl';
+	import 'maplibre-gl/dist/maplibre-gl.css';
+	import DistanceMeasurementMapLibreGlDirections, {
+		config
+	} from '$lib/map/distance-measurement-directions';
+	let directions: DistanceMeasurementMapLibreGlDirections | undefined = undefined;
+	let totalDistance = 0;
 	onMount(() => {
-		let map = new maplibregl.Map({
+		const map = new maplibregl.Map({
 			container: 'map',
-			center: [73.3686, 54.9924],
 			style:
 				'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7',
-			zoom: 12
+			center: [74.1197632, 54.6974034],
+			zoom: 11
 		});
-		map.addControl(
-			new maplibregl.GeolocateControl({
-				positionOptions: {
-					enableHighAccuracy: true
-				},
-				trackUserLocation: true
-			})
-		);
-		let marker = new maplibregl.Marker().setLngLat([0, 0]).addTo(map);
-		map.on('move', function (e) {
-			marker.setLngLat(map.getCenter());
+		map.on('load', () => {
+			directions = new DistanceMeasurementMapLibreGlDirections(map, config);
+			directions.on('fetchroutesend', (ev) => {
+				totalDistance = ev.data?.routes[0].distance as number;
+			});
+			directions.on('removewaypoint', () => {
+				if (directions.waypoints.length < 2) {
+					totalDistance = 0;
+				}
+			});
+			directions.interactive = true;
 		});
 	});
-	async function sumbit() {
-		const address = 'Лукашевича 25';
-		const response = await fetch(
-			`https://nominatim.openstreetmap.org/search?q=${address}&format=geojson&polygon_geojson=1&addressdetails=1`
-		);
-		const data = await response.json();
-		item = data.features[0].properties.display_name;
-	}
-
-	let item = ''
 </script>
-{item}
-<button on:click={() => sumbit()}>Отправить</button>
 
+<p>
+	Total Route Distance:
+	{#if totalDistance}
+		<strong>{totalDistance}m</strong>
+	{:else}
+		<em>0</em>
+	{/if}
+</p>
+<span class="text-[#8e8e8e]  text-sm">Укажите маршрут</span>
+<div class=" relative">
+	<form action="">
+		<input
+			placeholder="Лукашевича 25"
+			class="p-4 border-[#e8e8e8]/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
+			type="text"
+			name="address"
+			id=""
+			autocomplete="address-line1"
+		/>
+	</form>
+</div>
+<div class="">
+	<input
+		placeholder="Мира 31"
+		class="p-4 border-[#e8e8e8]/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
+		type="text"
+		name=""
+		id=""
+	/>
+</div>
 <div id="map" class="bg-[#EEEEEE] relative h-[50vh]" />

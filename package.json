@@ -31,6 +31,7 @@
 	"type": "module",
 	"dependencies": {
 		"@mapbox/mapbox-sdk": "^0.14.0",
+		"@maplibre/maplibre-gl-directions": "^0.2.8",
 		"mapbox-gl": "^2.11.1"
 	}
 }

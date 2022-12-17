@@ -17,7 +17,6 @@
 	}
 	let model = [];
 
-	let hidden = false;
 </script>
 
 <div class="px-5 mb-12">
@@ -36,37 +35,7 @@
 			id=""
 		/>
 	</div>
-	<div class="flex mb-6 gap-3  flex-col">
-		<span class="text-[#8e8e8e]  text-sm">Укажите маршрут</span>
-
-		<div class=" relative">
-			<button on:click={() => (hidden = !hidden)} class=" absolute p-4 text-[#767676] right-0"
-				>карта</button
-			>
-			<form action="">
-				<input
-					placeholder="Лукашевича 25"
-					class="p-4 border-[#e8e8e8]/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
-					type="text"
-					name="address"
-					id=""
-					autocomplete="address-line1"
-				/>
-			</form>
-		</div>
-		<div class="">
-			<input
-				placeholder="Мира 31"
-				class="p-4 border-[#e8e8e8]/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
-				type="text"
-				name=""
-				id=""
-			/>
-		</div>
-	</div>
-	{#if hidden}
 		<InputAddress />
-	{/if}
 	<div class="flex flex-col">
 		<span class="text-[#8e8e8e] mb-3  text-sm">Марка и модель автомобиля</span>
 
