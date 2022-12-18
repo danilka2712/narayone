@@ -167,7 +167,7 @@
 	let hidden = false;
 	function activeMap() {
 		hidden = !hidden;
-		if (hidden === true && toCoordinate.length < 1 || whereCoordinate.length < 1 ) {
+		if ((hidden === true && toCoordinate.length < 1) || whereCoordinate.length < 1) {
 			mapOpen(1);
 		} else if (toCoordinate.length > 1) {
 			mapOpen(3);
@@ -177,7 +177,6 @@
 	let items;
 </script>
 
-{whereCoordinate.length}
 <span class="text-[#8e8e8e]  text-sm">Укажите маршрут</span>
 <div class=" relative mb-4">
 	<form action=" " class=" relative">
