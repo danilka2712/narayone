@@ -5,18 +5,18 @@
 	let addressTo = 'Омск Мира 25';
 
 	async function searceWhere() {
-		setTimeout(async () => {
+		setInterval(async () => {
 			const response = await fetch(
 				`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressWhere}&format=json&limit=1`
 			);
 			const data = await response.json();
 			whereCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
 			console.log(data);
-		}, 1000);
+		}, 2000);
 	}
 	$: addressTo.length > 6 ? searceTo() : '';
 	async function searceTo() {
-		setTimeout(async () => {
+		setInterval(async () => {
 			const response = await fetch(
 				`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressTo}&format=json&limit=1`
 			);
