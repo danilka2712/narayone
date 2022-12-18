@@ -100,7 +100,7 @@
 			<span class="my-4 text-[#8e8e8e] text">Стоимость:</span>
 			<p class=" text-xl font-semibold font-sans">{selected === 'BMW' ? '1990' : '2390'}₽</p>
 		</div>
-		<a href="/order/hello-world">
+		<a href="/">
 			<button class=" bg-[#5BC43A] p-3 mt-2 rounded-2xl w-full   py-4   font-semibold text-white"
 				>Оставить заявку</button
 			>

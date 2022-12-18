@@ -1,12 +1,9 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	let whereCoordinate = [];
 	let toCoordinate = [];
 	let addressWhere = '';
 	let addressTo = 'Омск Лукашевича 12';
 
-	$: addressWhere.length > 6 ? searceWhere() : '';
 	async function searceWhere() {
 		setTimeout(async () => {
 			const response = await fetch(
@@ -14,7 +11,8 @@
 			);
 			const data = await response.json();
 			whereCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
-		}, 1000);
+			console.log(data);
+		}, 2000);
 	}
 	$: addressTo.length > 6 ? searceTo() : '';
 	async function searceTo() {
@@ -198,6 +196,7 @@
 </div>
 <div class="mb-4">
 	<input
+		on:click={searceWhere}
 		bind:value={addressTo}
 		placeholder="Мира 31"
 		class="p-4 border-[#e8e8e8]/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
