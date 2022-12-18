@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { setResponse } from "@sveltejs/kit/node";
+
+
 	let whereCoordinate = [];
 	let toCoordinate = [];
 	let addressWhere = 'Омск Лукашевича 25';
@@ -16,7 +19,7 @@
 	}
 	$: addressTo.length > 6 ? searceTo() : '';
 	async function searceTo() {
-		setInterval(async () => {
+		setTimeout(async () => {
 			const response = await fetch(
 				`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressTo}&format=json&limit=1`
 			);
