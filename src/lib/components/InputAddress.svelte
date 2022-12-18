@@ -2,7 +2,7 @@
 	let whereCoordinate = [];
 	let toCoordinate = [];
 	let addressWhere = '';
-	let addressTo = 'Омск Лукашевича 12';
+	let addressTo = '';
 
 	async function searceWhere() {
 		setTimeout(async () => {
