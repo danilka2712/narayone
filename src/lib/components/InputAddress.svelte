@@ -5,8 +5,11 @@
 	let toCoordinate;
 
 	const mapOpen = (num) => {
+		let number = 1;
 		setTimeout(async () => {
 			if (num === 1) {
+				number = 1;
+				numbers = number;
 				let map = new maplibregl.Map({
 					container: 'map', // container id
 					style:
@@ -21,6 +24,8 @@
 					whereCoordinate = center.getLngLat().toArray();
 				});
 			} else if (num === 2) {
+				number = 2;
+				numbers = number;
 				let map = new maplibregl.Map({
 					container: 'map', // container id
 					style:
@@ -35,6 +40,8 @@
 					toCoordinate = center.getLngLat().toArray();
 				});
 			} else if (num === 3) {
+				number = 3;
+				numbers = number;
 				const response = await fetch(
 					`https://api.mapbox.com/directions/v5/mapbox/driving/${whereCoordinate};${toCoordinate}?annotations=maxspeed&overview=full&geometries=geojson&access_token=pk.eyJ1IjoiZGFuaWxrYTI3MTIiLCJhIjoiY2xiamFndWc2MDJoazNwcXZnaXZoNm9hYSJ9.lAMLaj7C67amMgE1yWU_WA`
 				);
@@ -86,11 +93,9 @@
 			mapOpen(1);
 		}
 	}
+	let numbers = 1;
 	let items;
 </script>
-
-<button on:click={() => mapOpen(2)}>Добавить</button>
-<button on:click={() => mapOpen(3)}>Добавить21</button>
 
 <span class="text-[#8e8e8e]  text-sm">Укажите маршрут</span>
 <div class=" relative mb-4">
@@ -117,10 +122,29 @@
 </div>
 {#if hidden}
 	<div id="map" class="bg-[#EEEEEE] relative h-[50vh]">
-		<div class=" absolute bottom-2 z-10 w-full px-4">
-			<button class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10"
-				>Выбрать точку отправления</button
-			>
-		</div>
+		{#if numbers === 1}
+			<div class=" absolute bottom-2 z-10 w-full px-4">
+				<button
+					on:click={() => mapOpen(2)}
+					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10"
+					>Выбрать точку отправления</button
+				>
+			</div>
+		{:else if numbers === 2}
+			<div class=" absolute bottom-2 z-10 w-full px-4">
+				<button
+					on:click={() => mapOpen(3)}
+					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10"
+					>Выбрать точку прибытия</button
+				>
+			</div>
+		{:else if numbers === 3}
+			<div class=" absolute bottom-2 z-10 w-full px-4">
+				<button
+					on:click={() => mapOpen(1)}
+					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10">Очистить</button
+				>
+			</div>
+		{/if}
 	</div>
 {/if}
