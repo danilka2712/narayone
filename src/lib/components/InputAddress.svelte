@@ -8,19 +8,23 @@
 
 	$: addressWhere.length > 6 ? searceWhere() : '';
 	async function searceWhere() {
-		const response = await fetch(
-			`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressWhere}&format=json&limit=1`
-		);
-		const data = await response.json();
-		whereCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
+		setTimeout(async () => {
+			const response = await fetch(
+				`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressWhere}&format=json&limit=1`
+			);
+			const data = await response.json();
+			whereCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
+		}, 1000);
 	}
 	$: addressTo.length > 6 ? searceTo() : '';
 	async function searceTo() {
-		const response = await fetch(
-			`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressTo}&format=json&limit=1`
-		);
-		const data = await response.json();
-		toCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
+		setTimeout(async () => {
+			const response = await fetch(
+				`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressTo}&format=json&limit=1`
+			);
+			const data = await response.json();
+			toCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
+		}, 1000);
 	}
 	const mapOpen = (num) => {
 		setTimeout(async () => {
