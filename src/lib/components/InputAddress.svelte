@@ -1,8 +1,8 @@
 <script lang="ts">
 	let whereCoordinate = [];
 	let toCoordinate = [];
-	let addressWhere = '';
-	let addressTo = '';
+	let addressWhere = 'Омск Лукашевича 25';
+	let addressTo = 'Омск Мира 25';
 
 	async function searceWhere() {
 		setTimeout(async () => {
@@ -12,7 +12,7 @@
 			const data = await response.json();
 			whereCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
 			console.log(data);
-		}, 2000);
+		}, 1000);
 	}
 	$: addressTo.length > 6 ? searceTo() : '';
 	async function searceTo() {
@@ -22,7 +22,7 @@
 			);
 			const data = await response.json();
 			toCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
-		}, 1000);
+		}, 2000);
 	}
 	const mapOpen = (num) => {
 		setTimeout(async () => {
