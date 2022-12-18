@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { MercatorCoordinate } from 'mapbox-gl';
+	import { onMount } from 'svelte';
 
 	let whereCoordinate;
 	let toCoordinate;
@@ -35,7 +36,8 @@
 					toCoordinate = center.getLngLat().toArray();
 				});
 			} else if (num === 3) {
-				let map = new maplibregl.Map({
+				onMount(() => {
+					let map = new maplibregl.Map({
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
@@ -77,6 +79,7 @@
 						}
 					});
 				});
+				})
 			}
 		}, 1000);
 	};
