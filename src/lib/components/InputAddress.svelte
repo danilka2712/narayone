@@ -5,7 +5,7 @@
 	let toCoordinate;
 
 	const mapOpen = (num) => {
-		setTimeout(() => {
+		setTimeout(async () => {
 			if (num === 1) {
 				let map = new maplibregl.Map({
 					container: 'map', // container id
@@ -35,51 +35,47 @@
 					toCoordinate = center.getLngLat().toArray();
 				});
 			} else if (num === 3) {
-				fetch(
+				const response = await fetch(
 					`https://api.mapbox.com/directions/v5/mapbox/driving/${whereCoordinate};${toCoordinate}?annotations=maxspeed&overview=full&geometries=geojson&access_token=pk.eyJ1IjoiZGFuaWxrYTI3MTIiLCJhIjoiY2xiamFndWc2MDJoazNwcXZnaXZoNm9hYSJ9.lAMLaj7C67amMgE1yWU_WA`
-				)
-					.then((data) => data.json())
-					.then((addresse) => {
-						items = addresse.routes[0].geometry.coordinates;
-					});
-				setTimeout(() => {
-					let map = new maplibregl.Map({
-						container: 'map', // container id
-						style:
-							'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-						center: [74.3342, 55.534543], // starting position [lng, lat]
-						zoom: 12 // starting zoom
-					});
-					new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
-					new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
+				);
+				const data = await response.json();
+				items = data.routes[0].geometry.coordinates;
+				let map = new maplibregl.Map({
+					container: 'map', // container id
+					style:
+						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
+					center: [74.3342, 55.534543], // starting position [lng, lat]
+					zoom: 12 // starting zoom
+				});
+				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
+				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
 
-					map.on('load', function () {
-						map.addSource('route', {
-							type: 'geojson',
-							data: {
-								type: 'Feature',
-								properties: {},
-								geometry: {
-									type: 'LineString',
-									coordinates: items
-								}
+				map.on('load', function () {
+					map.addSource('route', {
+						type: 'geojson',
+						data: {
+							type: 'Feature',
+							properties: {},
+							geometry: {
+								type: 'LineString',
+								coordinates: items
 							}
-						});
-						map.addLayer({
-							id: 'route',
-							type: 'line',
-							source: 'route',
-							layout: {
-								'line-join': 'round',
-								'line-cap': 'round'
-							},
-							paint: {
-								'line-color': '#888',
-								'line-width': 8
-							}
-						});
+						}
 					});
-				}, 1000);
+					map.addLayer({
+						id: 'route',
+						type: 'line',
+						source: 'route',
+						layout: {
+							'line-join': 'round',
+							'line-cap': 'round'
+						},
+						paint: {
+							'line-color': '#888',
+							'line-width': 8
+						}
+					});
+				});
 			}
 		}, 100);
 	};
