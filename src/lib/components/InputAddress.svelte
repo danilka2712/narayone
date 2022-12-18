@@ -91,7 +91,7 @@
 </script>
 
 <button on:click={() => mapOpen(2)}>Добавить</button>
-<button on:click={() => mapOpen(3)}>Добавить2</button>
+<button on:click={() => mapOpen(3)}>Добавить21</button>
 
 <span class="text-[#8e8e8e]  text-sm">Укажите маршрут</span>
 <div class=" relative mb-4">
