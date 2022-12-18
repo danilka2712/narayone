@@ -8,7 +8,7 @@
 	let addressTo = 'Омск Мира 25';
 
 	async function searceWhere() {
-		setInterval(async () => {
+		setTimeout(async () => {
 			const response = await fetch(
 				`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressWhere}&format=json&limit=1`
 			);
