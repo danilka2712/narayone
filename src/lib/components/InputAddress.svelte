@@ -1,15 +1,15 @@
 <script lang="ts">
 	import postCode from '$lib/components/postCode.json';
-	let whereCoordinate: any[] = [];
-	let toCoordinate: any[] = [];
+	let whereCoordinate = [];
+	let toCoordinate = [];
 
 	let addressWhere = '';
 	let addressTo = '';
 
-	let postcode = '';
-	let postcode1 = '';
+	let postcode;
+	let postcode1;
 
-	$: addressWhere.length > 4 ? district() : '';
+	$: addressWhere.length > 5 ? district() : '';
 	const district = () => {
 		let searce = postCode.find((dis) => dis.district.toLowerCase() === addressWhere.toLowerCase());
 		if (searce?.district.toLowerCase() === addressWhere.toLowerCase()) {
@@ -17,7 +17,7 @@
 			postcode = postcode;
 		}
 	};
-	$: addressTo.length > 4 ? district1() : '';
+	$: addressTo.length > 5 ? district1() : '';
 	const district1 = () => {
 		let searce = postCode.find((dis) => dis.district.toLowerCase() === addressTo.toLowerCase());
 		if (searce?.district.toLowerCase() === addressTo.toLowerCase()) {
@@ -25,7 +25,7 @@
 			postcode1 = postcode1;
 		}
 	};
-	$: addressWhere.length > 7 ? searceWhere() : '';
+	$: addressWhere.length > 5 ? searceWhere() : '';
 	async function searceWhere() {
 		const response = await fetch(
 			`https://api.mapbox.com/geocoding/v5/mapbox.places-permanent/${
@@ -34,16 +34,18 @@
 		);
 		const data = await response.json();
 		whereCoordinate = data.features[0].center;
+		console.log(whereCoordinate);
 	}
-	$: addressTo.length > 7 ? searceTo() : '';
+	$: addressTo.length > 5 ? searceTo() : '';
 	async function searceTo() {
 		const response = await fetch(
 			`https://api.mapbox.com/geocoding/v5/mapbox.places-permanent/${
-				postcode1 + ' ' + addressWhere + ' ' + 'Омск'
+				postcode1 + ' ' + addressTo + ' ' + 'Омск'
 			}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrNnJ6bDdzdzA5cnAza3F4aTVwcWxqdWEifQ.RFF7CVFKrUsZVrJsFzhRvQ&limit=2&fuzzyMatch`
 		);
 		const data = await response.json();
 		toCoordinate = data.features[0].center;
+		console.log(toCoordinate);
 	}
 	const mapOpen = (num) => {
 		setTimeout(async () => {
@@ -83,6 +85,9 @@
 					center: [72.7, 55.15], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
+
+				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
+
 				map.addControl(
 					new maplibregl.GeolocateControl({
 						positionOptions: {
@@ -123,6 +128,8 @@
 				);
 				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
 				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
+				console.log(toCoordinate);
+
 				map.on('load', function () {
 					map.addSource('route', {
 						type: 'geojson',
@@ -198,6 +205,8 @@
 				);
 				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
 				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
+				console.log(toCoordinate);
+
 				map.on('load', function () {
 					map.addSource('route', {
 						type: 'geojson',
@@ -239,6 +248,7 @@
 	let numbers = 1;
 	let items;
 </script>
+
 <span class="text-[#8e8e8e]  text-sm">Укажите маршрут</span>
 <div class=" my-3">
 	<form action=" " class=" relative">
