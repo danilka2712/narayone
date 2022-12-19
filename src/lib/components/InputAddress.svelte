@@ -7,6 +7,8 @@
 	let addressTo = '';
 
 	let postcode = '';
+	let postcode1 = '';
+
 	$: addressWhere.length > 4 ? district() : '';
 	const district = () => {
 		let searce = postCode.find((dis) => dis.district.toLowerCase() === addressWhere.toLowerCase());
@@ -19,8 +21,8 @@
 	const district1 = () => {
 		let searce = postCode.find((dis) => dis.district.toLowerCase() === addressTo.toLowerCase());
 		if (searce?.district.toLowerCase() === addressTo.toLowerCase()) {
-			postcode = searce.postcode;
-			postcode = postcode;
+			postcode1 = searce.postcode;
+			postcode1 = postcode1;
 		}
 	};
 	$: addressWhere.length > 7 ? searceWhere() : '';
@@ -37,7 +39,7 @@
 	async function searceTo() {
 		const response = await fetch(
 			`https://api.mapbox.com/geocoding/v5/mapbox.places-permanent/${
-				postcode + ' ' + addressWhere + ' ' + 'Омск'
+				postcode1 + ' ' + addressWhere + ' ' + 'Омск'
 			}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrNnJ6bDdzdzA5cnAza3F4aTVwcWxqdWEifQ.RFF7CVFKrUsZVrJsFzhRvQ&limit=2&fuzzyMatch`
 		);
 		const data = await response.json();
