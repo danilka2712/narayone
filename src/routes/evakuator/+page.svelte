@@ -1,7 +1,6 @@
 <script lang="ts">
 	import InputAddress from '$lib/components/InputAddress.svelte';
 	import carModel from './carModel.json';
-	import { onMount } from 'svelte';
 
 	function brands() {
 		return carModel.map((car) => car.brand);
@@ -16,7 +15,6 @@
 		});
 	}
 	let model = [];
-
 </script>
 
 <div class="px-5 mb-12">
@@ -35,7 +33,7 @@
 			id=""
 		/>
 	</div>
-		<InputAddress />
+	<InputAddress />
 	<div class="flex flex-col">
 		<span class="text-[#8e8e8e] mb-3  text-sm">Марка и модель автомобиля</span>
 

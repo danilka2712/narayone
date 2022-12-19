@@ -1,32 +1,18 @@
 <script lang="ts">
-	import { setResponse } from "@sveltejs/kit/node";
-
-
 	let whereCoordinate = [];
 	let toCoordinate = [];
 	let addressWhere = 'Омск Лукашевича 25';
 	let addressTo = 'Омск Мира 25';
-
+	const uuid = crypto.randomUUID();
+	console.log(uuid)
 	async function searceWhere() {
-		setTimeout(async () => {
-			const response = await fetch(
-				`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressWhere}&format=json&limit=1`
-			);
-			const data = await response.json();
-			whereCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
-			console.log(data);
-		}, 2000);
+		const response = await fetch(
+			`https://api.mapbox.com/search/v1/suggest/${addressWhere}?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrNnJ6bDdzdzA5cnAza3F4aTVwcWxqdWEifQ.RFF7CVFKrUsZVrJsFzhRvQ&session_token=2776fe8c-9479-4dbd-94c5-b71d6c331110&language=ru&country=RU&limit=10&types=country%2Cregion%2Cdistrict%2Cpostcode%2Clocality%2Cplace%2Cneighborhood%2Caddress%2Cpoi%2Cstreet%2Ccategory&proximity=73.28427124023438%2C55.00233459472656`
+		);
+		const data = await response.json();
+		console.log(data);
 	}
-	$: addressTo.length > 6 ? searceTo() : '';
-	async function searceTo() {
-		setTimeout(async () => {
-			const response = await fetch(
-				`https://nominatim.openstreetmap.org/?addressdetails=1&q=${addressTo}&format=json&limit=1`
-			);
-			const data = await response.json();
-			toCoordinate = new Array(Number(data[0].lon), Number(data[0].lat));
-		}, 2000);
-	}
+
 	const mapOpen = (num) => {
 		setTimeout(async () => {
 			if (num === 1 && whereCoordinate.length > 1) {
