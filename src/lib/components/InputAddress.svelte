@@ -239,10 +239,8 @@
 	let numbers = 1;
 	let items;
 </script>
-
-{postcode}
 <span class="text-[#8e8e8e]  text-sm">Укажите маршрут</span>
-<div class=" relative mb-4">
+<div class=" my-3">
 	<form action=" " class=" relative">
 		<input
 			bind:value={addressWhere}
