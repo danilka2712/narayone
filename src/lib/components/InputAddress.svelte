@@ -1,18 +1,48 @@
 <script lang="ts">
-	let whereCoordinate = [];
-	let toCoordinate = [];
-	let addressWhere = 'Омск Лукашевича 25';
-	let addressTo = 'Омск Мира 25';
-	const uuid = crypto.randomUUID();
-	console.log(uuid)
+	import postCode from '$lib/components/postCode.json';
+	let whereCoordinate: any[] = [];
+	let toCoordinate: any[] = [];
+
+	let addressWhere = '';
+	let addressTo = '';
+
+	let postcode = '';
+	$: addressWhere.length > 4 ? district() : '';
+	const district = () => {
+		let searce = postCode.find((dis) => dis.district.toLowerCase() === addressWhere.toLowerCase());
+		if (searce?.district.toLowerCase() === addressWhere.toLowerCase()) {
+			postcode = searce.postcode;
+			postcode = postcode;
+		}
+	};
+	$: addressTo.length > 4 ? district1() : '';
+	const district1 = () => {
+		let searce = postCode.find((dis) => dis.district.toLowerCase() === addressTo.toLowerCase());
+		if (searce?.district.toLowerCase() === addressTo.toLowerCase()) {
+			postcode = searce.postcode;
+			postcode = postcode;
+		}
+	};
+	$: addressWhere.length > 7 ? searceWhere() : '';
 	async function searceWhere() {
 		const response = await fetch(
-			`https://api.mapbox.com/search/v1/suggest/${addressWhere}?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrNnJ6bDdzdzA5cnAza3F4aTVwcWxqdWEifQ.RFF7CVFKrUsZVrJsFzhRvQ&session_token=2776fe8c-9479-4dbd-94c5-b71d6c331110&language=ru&country=RU&limit=10&types=country%2Cregion%2Cdistrict%2Cpostcode%2Clocality%2Cplace%2Cneighborhood%2Caddress%2Cpoi%2Cstreet%2Ccategory&proximity=73.28427124023438%2C55.00233459472656`
+			`https://api.mapbox.com/geocoding/v5/mapbox.places-permanent/${
+				postcode + ' ' + addressWhere + ' ' + 'Омск'
+			}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrNnJ6bDdzdzA5cnAza3F4aTVwcWxqdWEifQ.RFF7CVFKrUsZVrJsFzhRvQ&limit=2&fuzzyMatch`
 		);
 		const data = await response.json();
-		console.log(data);
+		whereCoordinate = data.features[0].center;
 	}
-
+	$: addressTo.length > 7 ? searceTo() : '';
+	async function searceTo() {
+		const response = await fetch(
+			`https://api.mapbox.com/geocoding/v5/mapbox.places-permanent/${
+				postcode + ' ' + addressWhere + ' ' + 'Омск'
+			}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrNnJ6bDdzdzA5cnAza3F4aTVwcWxqdWEifQ.RFF7CVFKrUsZVrJsFzhRvQ&limit=2&fuzzyMatch`
+		);
+		const data = await response.json();
+		toCoordinate = data.features[0].center;
+	}
 	const mapOpen = (num) => {
 		setTimeout(async () => {
 			if (num === 1 && whereCoordinate.length > 1) {
@@ -23,9 +53,17 @@
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-					center: [73.272496, 54.9965753], // starting position [lng, lat]
+					center: [72.7, 55.15], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
+				map.addControl(
+					new maplibregl.GeolocateControl({
+						positionOptions: {
+							enableHighAccuracy: true
+						},
+						trackUserLocation: true
+					})
+				);
 				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
 
 				let marker = new maplibregl.Marker().setLngLat([0, 0]).addTo(map);
@@ -40,9 +78,17 @@
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-					center: [74.3342, 55.534543], // starting position [lng, lat]
+					center: [72.7, 55.15], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
+				map.addControl(
+					new maplibregl.GeolocateControl({
+						positionOptions: {
+							enableHighAccuracy: true
+						},
+						trackUserLocation: true
+					})
+				);
 				let marker = new maplibregl.Marker().setLngLat([0, 0]).addTo(map);
 				map.on('move', function (e) {
 					let center = marker.setLngLat(map.getCenter());
@@ -62,9 +108,17 @@
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-					center: [74.3342, 55.534543], // starting position [lng, lat]
+					center: [72.7, 55.15], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
+				map.addControl(
+					new maplibregl.GeolocateControl({
+						positionOptions: {
+							enableHighAccuracy: true
+						},
+						trackUserLocation: true
+					})
+				);
 				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
 				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
 				map.on('load', function () {
@@ -99,9 +153,17 @@
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-					center: [74.3342, 55.534543], // starting position [lng, lat]
+					center: [72.7, 55.15], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
+				map.addControl(
+					new maplibregl.GeolocateControl({
+						positionOptions: {
+							enableHighAccuracy: true
+						},
+						trackUserLocation: true
+					})
+				);
 				let marker = new maplibregl.Marker().setLngLat([0, 0]).addTo(map);
 				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
 				map.on('move', function (e) {
@@ -124,6 +186,14 @@
 					center: [74.3342, 55.534543], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
+				map.addControl(
+					new maplibregl.GeolocateControl({
+						positionOptions: {
+							enableHighAccuracy: true
+						},
+						trackUserLocation: true
+					})
+				);
 				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
 				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
 				map.on('load', function () {
@@ -168,6 +238,7 @@
 	let items;
 </script>
 
+{postcode}
 <span class="text-[#8e8e8e]  text-sm">Укажите маршрут</span>
 <div class=" relative mb-4">
 	<form action=" " class=" relative">
@@ -185,7 +256,6 @@
 </div>
 <div class="mb-4">
 	<input
-		on:click={searceWhere}
 		bind:value={addressTo}
 		placeholder="Мира 31"
 		class="p-4 border-[#e8e8e8]/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"

@@ -6,7 +6,7 @@
 		return carModel.map((car) => car.brand);
 	}
 	let selected = 'Марка';
-	function models(cars) {
+	function models(cars:any) {
 		carModel.find(({ brand, models }) => {
 			if (brand === cars) {
 				model = models;
