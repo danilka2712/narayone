@@ -257,7 +257,7 @@
 			id=""
 			autocomplete="address-line1"
 		/>
-		<button on:click={() => activeMap()} class=" absolute  right-4 top-4 ">Карта</button>
+		<button on:click={() => activeMap()} class=" absolute text-sm font-medium  right-4 top-5 ">Карта</button>
 	</form>
 </div>
 <div class="mb-4">

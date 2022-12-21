@@ -32,6 +32,7 @@
 	"dependencies": {
 		"@mapbox/mapbox-sdk": "^0.14.0",
 		"@maplibre/maplibre-gl-directions": "^0.2.8",
-		"mapbox-gl": "^2.11.1"
+		"mapbox-gl": "^2.11.1",
+		"svelte-typewriter": "^3.1.4"
 	}
 }
