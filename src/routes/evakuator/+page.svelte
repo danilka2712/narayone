@@ -6,6 +6,8 @@
 		return carModel.map((car) => car.brand);
 	}
 	let selected = 'Марка';
+	let selectedModels = 'Модель';
+
 	function models(cars: any) {
 		carModel.find(({ brand, models }) => {
 			if (brand === cars) {
@@ -39,36 +41,70 @@
 		<span class="text-[#8e8e8e] mb-3  text-sm">Марка и модель автомобиля</span>
 
 		<div class=" flex gap-3 ">
-			<select
-				bind:value={selected}
-				on:change={() => models(selected)}
-				class="form-select appearance-none
-            block
-            w-1/2
-            px-4
-            py-4
-            text-base
-            font-normal
-            bg-white bg-clip-padding bg-no-repeat
-             border border-solid border-[#e8e8e8]/75
-            transition
-            ease-in-out rounded-2xl
-            m-0
-            focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
-				aria-label="Default select example"
-			>
-				<option class=" font-semibold" selected>Марка</option>
+			<div class=" relative w-1/2 flex items-center">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="100%"
+					height="100%"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="feather right-4 absolute feather-chevron-up rotate-180 w-4 h-4"
+				>
+					<polyline points="18 15 12 9 6 15" />
+				</svg>
+				<select
+					class:active={selected === 'Марка'}
+					bind:value={selected}
+					on:change={() => models(selected)}
+					class="form-select appearance-none
+		block
+		w-full
+		px-4
+		py-4
+		text-base
+		font-normal
+		bg-white bg-clip-padding bg-no-repeat
+		 border border-solid border-[#e8e8e8]/75
+		transition
+		ease-in-out rounded-2xl
+		m-0
+		focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
+					aria-label="Default select example"
+				>
+					<option class="text-black font-semibold" selected>Марка</option>
 
-				{#each brands() as question}
-					<option value={question}>
-						{question}
-					</option>
-				{/each}
-			</select>
-			<select
-				class="form-select  appearance-none
+					{#each brands() as question}
+						<option class="text-black " value={question}>
+							{question}
+						</option>
+					{/each}
+				</select>
+			</div>
+			<div class="a  w-1/2 relative flex items-center">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="100%"
+					height="100%"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="feather  right-4 absolute feather-chevron-up  rotate-180 w-4 h-4"
+				>
+					<polyline points="18 15 12 9 6 15" />
+				</svg>
+				<select
+					bind:value={selectedModels}
+					class:active={selectedModels === 'Модель'}
+					class="form-select  appearance-none
             block
-            w-1/2
+            w-full
             px-4
             py-4
             text-base
@@ -79,18 +115,19 @@
             ease-in-out rounded-2xl
             m-0
             focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
-				aria-label="Default select example"
-			>
-				<option class=" font-semibold" selected>Модель</option>
+					aria-label="Default select example"
+				>
+					<option class="text-black font-semibold" selected>Модель</option>
 
-				{#each model as m}
-					<option value={m}>
-						{m}
-					</option>
-				{/each}
-			</select>
+					{#each model as m}
+						<option class="text-black" value={m}>
+							{m}
+						</option>
+					{/each}
+				</select>
+			</div>
 		</div>
-		<div class="mt-5 flex justify-end">
+		<div class="mt-5 flex">
 			<div class="flex items-center gap-2">
 				<button on:click={() => (hiddenPogruz = !hiddenPogruz)} class="">Сложность погрузки</button>
 				<svg
@@ -110,7 +147,7 @@
 			</div>
 
 			{#if hiddenPogruz}
-				<div class="bg-white h-44 overflow-scroll gap-4 mt-8 rounded-xl absolute p-5 flex flex-col">
+				<div class="bg-white h-44 overflow-x-auto gap-4 mt-8 rounded-xl absolute p-5 flex flex-col">
 					<label class="flex gap-4 items-center">
 						<input type="checkbox" />
 						Вытащить с кувета
@@ -161,5 +198,8 @@
 			margin: 0;
 			width: 90%;
 		}
+	}
+	.active {
+		color: #a6a3ab;
 	}
 </style>
