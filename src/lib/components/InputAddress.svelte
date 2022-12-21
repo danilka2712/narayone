@@ -54,7 +54,7 @@
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-					center: [72.7, 55.15], // starting position [lng, lat]
+					center: whereCoordinate, // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
 				map.addControl(
@@ -73,13 +73,12 @@
 					toCoordinate = center.getLngLat().toArray();
 				});
 			} else if (num == 1) {
-				console.log('Если нет ничего  первом блоке');
 				numbers = 1;
 				let map = new maplibregl.Map({
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-					center: [72.7, 55.15], // starting position [lng, lat]
+					center: [73.3696882833201, 54.99129109872183], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
 				if (toCoordinate.length > 1) {
@@ -97,6 +96,8 @@
 				let marker = new maplibregl.Marker().setLngLat([0, 0]).addTo(map);
 				map.on('move', function (e) {
 					let center = marker.setLngLat(map.getCenter());
+				console.log("sdasd",center);
+
 					whereCoordinate = center.getLngLat().toArray();
 				});
 			}
@@ -113,7 +114,7 @@
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-					center: [72.7, 55.15], // starting position [lng, lat]
+					center: toCoordinate, // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
 				map.addControl(
@@ -159,7 +160,7 @@
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-					center: [72.7, 55.15], // starting position [lng, lat]
+					center: whereCoordinate, // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
 				map.addControl(
@@ -189,7 +190,7 @@
 					container: 'map', // container id
 					style:
 						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-					center: [74.3342, 55.534543], // starting position [lng, lat]
+					center: whereCoordinate, // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
 				map.addControl(
