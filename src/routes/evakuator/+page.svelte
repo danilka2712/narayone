@@ -6,7 +6,7 @@
 		return carModel.map((car) => car.brand);
 	}
 	let selected = 'Марка';
-	function models(cars:any) {
+	function models(cars: any) {
 		carModel.find(({ brand, models }) => {
 			if (brand === cars) {
 				model = models;
@@ -15,6 +15,7 @@
 		});
 	}
 	let model = [];
+	let hiddenPogruz = false;
 </script>
 
 <div class="px-5 mb-12">
@@ -90,7 +91,35 @@
 			</select>
 		</div>
 		<div class="mt-4">
-			<button class=" border-b">Сложность погрузки</button>
+			<button on:click={() => hiddenPogruz = !hiddenPogruz} class="">Сложность погрузки</button>
+			{#if hiddenPogruz}
+				<div class="bg-white h-44 overflow-scroll gap-4 mt-4 rounded-xl absolute p-5 flex flex-col">
+					<label class="flex gap-4 items-center">
+						<input type="checkbox" />
+						Вытащить с кувета
+					</label>
+					<label class="flex gap-4 items-center">
+						<input type="checkbox" />
+						Заблокировано колесо
+					</label>
+					<label class="flex gap-4 items-center">
+						<input type="checkbox" />
+						Заблокировано колесо
+					</label>
+					<label class="flex gap-4 items-center">
+						<input type="checkbox" />
+						Заблокировано колесо
+					</label>
+					<label class="flex gap-4 items-center">
+						<input type="checkbox" />
+						Заблокировано колесо
+					</label>
+					<label class="flex gap-4 items-center">
+						<input type="checkbox" />
+						Заблокировано колесо
+					</label>
+				</div>
+			{/if}
 		</div>
 	</div>
 	<div class="mt-6 border-t-2 border-dotted">
