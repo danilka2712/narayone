@@ -82,10 +82,9 @@
 					center: [72.7, 55.15], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
-if(toCoordinate.length > 1) {
-	new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
-
-}
+				if (toCoordinate.length > 1) {
+					new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
+				}
 
 				map.addControl(
 					new maplibregl.GeolocateControl({
@@ -272,9 +271,9 @@ if(toCoordinate.length > 1) {
 	/>
 </div>
 {#if hidden}
-	<div id="map" class="bg-[#EEEEEE] relative h-[50vh]">
+	<div id="map" class="bg-[#EEEEEE] relative h-[60vh]">
 		{#if numbers === 1}
-			<div class=" absolute bottom-2 z-10 w-full px-4">
+			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(2)}
 					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10"
@@ -282,7 +281,7 @@ if(toCoordinate.length > 1) {
 				>
 			</div>
 		{:else if numbers === 2}
-			<div class=" absolute bottom-2 z-10 w-full px-4">
+			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(3)}
 					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10"
@@ -290,7 +289,7 @@ if(toCoordinate.length > 1) {
 				>
 			</div>
 		{:else if numbers === 3}
-			<div class=" absolute bottom-2 z-10 w-full px-4">
+			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(1)}
 					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10">Очистить</button
