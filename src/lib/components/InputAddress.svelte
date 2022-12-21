@@ -2,13 +2,10 @@
 	import postCode from '$lib/components/postCode.json';
 	let whereCoordinate = [];
 	let toCoordinate = [];
-
 	let addressWhere = '';
 	let addressTo = '';
-
 	let postcode;
 	let postcode1;
-
 	$: addressWhere.length > 5 ? district() : '';
 	const district = () => {
 		let searce = postCode.find((dis) => dis.district.toLowerCase() === addressWhere.toLowerCase());
@@ -85,8 +82,10 @@
 					center: [72.7, 55.15], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
+if(toCoordinate.length > 1) {
+	new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
 
-				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
+}
 
 				map.addControl(
 					new maplibregl.GeolocateControl({
@@ -128,7 +127,6 @@
 				);
 				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
 				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
-				console.log(toCoordinate);
 
 				map.on('load', function () {
 					map.addSource('route', {
@@ -206,7 +204,6 @@
 				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
 				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
 				console.log(toCoordinate);
-
 				map.on('load', function () {
 					map.addSource('route', {
 						type: 'geojson',
