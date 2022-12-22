@@ -31,13 +31,13 @@
 	<div class=" bg-[#FF584B] h-44 rounded-xl">
 		<img class="object-cover rounded-xl w-full h-full" src="padarki.svg" alt="" />
 	</div>
-	<div class=" flex flex-col gap-5 mb-24 mt-6">
+	<div class=" flex flex-col gap-3 mb-8 mt-3">
 		{#each items as item}
 			<a href={item.href}>
 				<div class="p-6 relative bg-[#fdfdff]  border border-[#fbf5f2]  flex rounded-xl">
 					<div>
 						<p class=" text-lg font-bold mb-2">{item.name}</p>
-						<p class="text-sm text-[#3C3C43]/60">
+						<p class="text-sm text-[#a5b3c1]">
 							Доставим ваш автомобиль <br /> в любой точку России
 						</p>
 					</div>

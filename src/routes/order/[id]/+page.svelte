@@ -10,7 +10,7 @@
 
 <div class="h-[85vh] flex flex-col justify-between   px-5">
 	<div class=" items-end  rounded-xl flex justify-between mt-5">
-		<p class="font-medium animate-pulse text-[#3C3C43]/60">Мы подбираем для вас эвакуатор</p>
+		<p class="font-medium animate-pulse text-[#a5b3c1]">Мы подбираем для вас эвакуатор</p>
 	</div>
 	<div class=" flex justify-center">
 		<img src="/car3.svg" class="w-44 animate-pulse "  alt="">

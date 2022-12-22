@@ -282,13 +282,14 @@
 	let items;
 </script>
 
-<span class="text-[#3C3C43]/60  text-sm">Укажите маршрут</span>
+<span class="text-[#a5b3c1]  text-sm">Укажите маршрут</span>
 <div class=" my-3">
 	<form action=" " class=" relative">
+		<div class=" absolute top-6 left-4 bg-[#090f21] rounded-full w-3 h-3"></div>
 		<input
 			bind:value={addressWhere}
 			placeholder="Лукашевича 25"
-			class="p-4 placeholder:text-[#bec1c7] border-[#fbf5f2] w-full font-sans focus:border-[#FF584B]  focus:outline-none border py-4 rounded-xl"
+			class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#fbf5f2] w-full font-sans focus:border-[#FF584B]  focus:outline-none border py-4 rounded-xl"
 			type="text"
 			name="address"
 			id=""
@@ -299,11 +300,12 @@
 		>
 	</form>
 </div>
-<div class="mb-4">
+<div class="mb-4 relative">
+	<img class=" w-5 absolute top-5 left-3" src="/Location.svg" alt="">
 	<input
 		bind:value={addressTo}
 		placeholder="Мира 31"
-		class="p-4 placeholder:text-[#bec1c7] border-[#fbf5f2] w-full font-sans focus:border-[#FF584B]  focus:outline-none border py-4 rounded-xl"
+		class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#fbf5f2] w-full font-sans focus:border-[#FF584B]  focus:outline-none border py-4 rounded-xl"
 		type="text"
 		name=""
 		id=""

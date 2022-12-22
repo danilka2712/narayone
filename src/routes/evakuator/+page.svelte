@@ -26,11 +26,11 @@
 	</div>
 
 	<div class="flex mb-6  flex-col">
-		<span class="text-[#3C3C43]/60 mb-3 text-sm">Контактные данные</span>
+		<span class="text-[#a5b3c1] mb-3 text-sm">Контактные данные</span>
 
 		<input
 			placeholder="Номер телефона"
-			class="p-4  placeholder:text-[#bec1c7]   border-[#fbf5f2]  font-sans focus:border-[#FF584B]  focus:outline-none border py-4 rounded-xl"
+			class="p-4  placeholder:text-[#a5b3c1]   border-[#fbf5f2]  font-sans focus:border-[#FF584B]  focus:outline-none border py-4 rounded-xl"
 			type="text"
 			name=""
 			id=""
@@ -38,7 +38,7 @@
 	</div>
 	<InputAddress />
 	<div class="flex flex-col">
-		<span class="text-[#3C3C43]/60 mb-3  text-sm">Марка и модель автомобиля</span>
+		<span class="text-[#a5b3c1] mb-3  text-sm">Марка и модель автомобиля</span>
 
 		<div class=" flex gap-3 ">
 			<div class=" relative w-1/2 flex items-center">
@@ -178,7 +178,7 @@
 	</div>
 	<div class="mt-6 border-t-2 border-dotted">
 		<div class="flex items-center justify-between">
-			<span class="my-4 text-[#3C3C43]/60 text">Стоимость:</span>
+			<span class="my-4 text-[#a5b3c1] text">Стоимость:</span>
 			<p class=" text-xl font-semibold font-sans">{selected === 'BMW' ? '1990' : '2390'}₽</p>
 		</div>
 		<a href="/order/2">
@@ -200,6 +200,6 @@
 		}
 	}
 	.active {
-		color: #bec1c7;
+		color: #a5b3c1;
 	}
 </style>
