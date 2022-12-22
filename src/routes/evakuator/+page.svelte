@@ -147,7 +147,7 @@
 			</div>
 
 			{#if hiddenPogruz}
-				<div class="bg-white h-44 overflow-x-auto gap-4 mt-8 rounded-xl absolute p-5 flex flex-col">
+				<div class="bg-white h-44 overflow-x-auto gap-4 mt-8 rounded-2xl absolute p-5 flex flex-col">
 					<label class="flex gap-4 items-center">
 						<input type="checkbox" />
 						Вытащить с кувета

@@ -9,7 +9,7 @@
 </script>
 
 <div class="h-[85vh] flex flex-col justify-between   px-5">
-	<div class=" items-end  rounded-xl flex justify-between mt-5">
+	<div class=" items-end  rounded-2xl flex justify-between mt-5">
 		<p class="font-medium animate-pulse text-[#3C3C43]/60">Мы подбираем для вас эвакуатор</p>
 	</div>
 	<div class=" flex justify-center">
