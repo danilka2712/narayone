@@ -30,7 +30,7 @@
 
 		<input
 			placeholder="Номер телефона"
-			class="p-4  placeholder:text-[#bec1c7]   border-gray-200/50  font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
+			class="p-4  placeholder:text-[#bec1c7]   border-gray-200/75  font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
 			type="text"
 			name=""
 			id=""
@@ -68,7 +68,7 @@
 		text-base
 		font-normal
 		bg-white bg-clip-padding bg-no-repeat
-		 border border-solid border-gray-200/50
+		 border border-solid border-gray-200/75
 		transition
 		ease-in-out rounded-2xl
 		m-0
@@ -110,7 +110,7 @@
             text-base
             font-normal
             bg-white bg-clip-padding bg-no-repeat
-            border border-solid border-gray-200/50
+            border border-solid border-gray-200/75
             transition
             ease-in-out rounded-2xl
             m-0
