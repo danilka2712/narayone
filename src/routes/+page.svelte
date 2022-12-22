@@ -28,7 +28,7 @@
 </script>
 
 <div class="px-5">
-	<div class=" bg-[#5BC43A] h-44 rounded-xl">
+	<div class=" bg-[#0887FC] h-44 rounded-xl">
 		<img class="object-cover rounded-xl w-full h-full" src="padarki.svg" alt="" />
 	</div>
 	<div class=" flex flex-col gap-5 mb-24 mt-6">

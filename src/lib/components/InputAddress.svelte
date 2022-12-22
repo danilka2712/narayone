@@ -53,7 +53,7 @@
 				let map = new maplibregl.Map({
 					container: 'map', // container id
 					style:
-						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
+						'https://api.maptiler.com/maps/8d081a87-527e-4c3b-ab7f-10a7c83dbc2e/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
 					center: whereCoordinate, // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
@@ -65,7 +65,11 @@
 						trackUserLocation: true
 					})
 				);
-				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
+				new maplibregl.Marker({
+					color: '#0887FC'
+				})
+					.setLngLat(whereCoordinate)
+					.addTo(map);
 
 				let marker = new maplibregl.Marker().setLngLat([0, 0]).addTo(map);
 				map.on('move', function (e) {
@@ -77,12 +81,16 @@
 				let map = new maplibregl.Map({
 					container: 'map', // container id
 					style:
-						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
+						'https://api.maptiler.com/maps/8d081a87-527e-4c3b-ab7f-10a7c83dbc2e/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
 					center: [73.3696882833201, 54.99129109872183], // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
 				if (toCoordinate.length > 1) {
-					new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
+					new maplibregl.Marker({
+						color: '#0887FC'
+					})
+						.setLngLat(toCoordinate)
+						.addTo(map);
 				}
 
 				map.addControl(
@@ -93,10 +101,14 @@
 						trackUserLocation: true
 					})
 				);
-				let marker = new maplibregl.Marker().setLngLat([0, 0]).addTo(map);
+				let marker = new maplibregl.Marker({
+					color: '#0887FC'
+				})
+					.setLngLat([0, 0])
+					.addTo(map);
 				map.on('move', function (e) {
 					let center = marker.setLngLat(map.getCenter());
-				console.log("sdasd",center);
+					console.log('sdasd', center);
 
 					whereCoordinate = center.getLngLat().toArray();
 				});
@@ -113,7 +125,7 @@
 				let map = new maplibregl.Map({
 					container: 'map', // container id
 					style:
-						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
+						'https://api.maptiler.com/maps/8d081a87-527e-4c3b-ab7f-10a7c83dbc2e/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
 					center: toCoordinate, // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
@@ -125,8 +137,16 @@
 						trackUserLocation: true
 					})
 				);
-				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
-				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
+				new maplibregl.Marker({
+					color: '#0887FC'
+				})
+					.setLngLat(whereCoordinate)
+					.addTo(map);
+				new maplibregl.Marker({
+					color: '#0887FC'
+				})
+					.setLngLat(toCoordinate)
+					.addTo(map);
 
 				map.on('load', function () {
 					map.addSource('route', {
@@ -159,7 +179,7 @@
 				let map = new maplibregl.Map({
 					container: 'map', // container id
 					style:
-						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
+						'https://api.maptiler.com/maps/8d081a87-527e-4c3b-ab7f-10a7c83dbc2e/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
 					center: whereCoordinate, // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
@@ -171,8 +191,16 @@
 						trackUserLocation: true
 					})
 				);
-				let marker = new maplibregl.Marker().setLngLat([0, 0]).addTo(map);
-				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
+				let marker = new maplibregl.Marker({
+					color: '#0887FC'
+				})
+					.setLngLat([0, 0])
+					.addTo(map);
+				new maplibregl.Marker({
+					color: '#0887FC'
+				})
+					.setLngLat(whereCoordinate)
+					.addTo(map);
 				map.on('move', function (e) {
 					let center = marker.setLngLat(map.getCenter());
 					toCoordinate = center.getLngLat().toArray();
@@ -189,7 +217,7 @@
 				let map = new maplibregl.Map({
 					container: 'map', // container id
 					style:
-						'https://api.maptiler.com/maps/f0650ebb-77aa-4dca-bef9-006920409ea9/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
+						'https://api.maptiler.com/maps/8d081a87-527e-4c3b-ab7f-10a7c83dbc2e/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
 					center: whereCoordinate, // starting position [lng, lat]
 					zoom: 12 // starting zoom
 				});
@@ -201,8 +229,16 @@
 						trackUserLocation: true
 					})
 				);
-				new maplibregl.Marker().setLngLat(whereCoordinate).addTo(map);
-				new maplibregl.Marker().setLngLat(toCoordinate).addTo(map);
+				new maplibregl.Marker({
+					color: '#0887FC'
+				})
+					.setLngLat(whereCoordinate)
+					.addTo(map);
+				new maplibregl.Marker({
+					color: '#0887FC'
+				})
+					.setLngLat(toCoordinate)
+					.addTo(map);
 				console.log(toCoordinate);
 				map.on('load', function () {
 					map.addSource('route', {
@@ -225,7 +261,7 @@
 							'line-cap': 'round'
 						},
 						paint: {
-							'line-color': '#888',
+							'line-color': '#AAD6F7',
 							'line-width': 8
 						}
 					});
@@ -252,32 +288,34 @@
 		<input
 			bind:value={addressWhere}
 			placeholder="Лукашевича 25"
-			class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-xl"
+			class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#0887FC]  focus:outline-none border py-4 rounded-xl"
 			type="text"
 			name="address"
 			id=""
 			autocomplete="address-line1"
 		/>
-		<button on:click={() => activeMap()} class=" absolute text-sm font-medium  right-4 top-5 ">Карта</button>
+		<button on:click={() => activeMap()} class=" absolute text-sm font-medium  right-4 top-5 "
+			>Карта</button
+		>
 	</form>
 </div>
 <div class="mb-4">
 	<input
 		bind:value={addressTo}
 		placeholder="Мира 31"
-		class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-xl"
+		class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#0887FC]  focus:outline-none border py-4 rounded-xl"
 		type="text"
 		name=""
 		id=""
 	/>
 </div>
 {#if hidden}
-	<div id="map" class="bg-[#EEEEEE] relative h-[60vh]">
+	<div id="map" class="bg-[#F8F9FD] relative h-[60vh]">
 		{#if numbers === 1}
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(2)}
-					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10"
+					class=" text-white w-full  bg-[#0887FC] rounded-xl p-4 z-10"
 					>Выбрать точку отправления</button
 				>
 			</div>
@@ -285,7 +323,7 @@
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(3)}
-					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10"
+					class=" text-white w-full  bg-[#0887FC] rounded-xl p-4 z-10"
 					>Выбрать точку прибытия</button
 				>
 			</div>
@@ -293,7 +331,7 @@
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(1)}
-					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10">Очистить</button
+					class=" text-white w-full  bg-[#0887FC] rounded-xl p-4 z-10">Очистить</button
 				>
 			</div>
 		{/if}
