@@ -28,16 +28,16 @@
 </script>
 
 <div class="px-5">
-	<div class=" bg-[#5BC43A] h-44 border-[#E2E2E2]/75 border rounded-xl">
+	<div class=" bg-[#5BC43A] h-44 rounded-xl">
 		<img class="object-cover rounded-xl w-full h-full" src="padarki.svg" alt="" />
 	</div>
 	<div class=" flex flex-col gap-5 mb-24 mt-6">
 		{#each items as item}
 			<a href={item.href}>
-				<div class="p-6 relative bg-[#f9f9f9] border-[#E2E2E2]/75 border flex rounded-xl">
+				<div class="p-6 relative bg-[#FFFFFF] flex rounded-xl">
 					<div>
 						<p class=" text-lg font-bold mb-2">{item.name}</p>
-						<p class="text-sm text-[#8e8e8e]">
+						<p class="text-sm text-[#3C3C43]/60">
 							Доставим ваш автомобиль <br /> в любой точку России
 						</p>
 					</div>
