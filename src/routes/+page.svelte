@@ -34,7 +34,7 @@
 	<div class=" flex flex-col gap-5 mb-24 mt-6">
 		{#each items as item}
 			<a href={item.href}>
-				<div class="p-6 relative bg-[#fcfcff]  border border-[#f5f6f6]  flex rounded-xl">
+				<div class="p-6 relative bg-[#fdfdff]  border border-[#fbf5f2]  flex rounded-xl">
 					<div>
 						<p class=" text-lg font-bold mb-2">{item.name}</p>
 						<p class="text-sm text-[#3C3C43]/60">
