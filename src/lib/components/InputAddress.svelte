@@ -252,7 +252,7 @@
 		<input
 			bind:value={addressWhere}
 			placeholder="Лукашевича 25"
-			class="p-4 placeholder:text-[#bec1c7] border-gray-200/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
+			class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-xl"
 			type="text"
 			name="address"
 			id=""
@@ -265,7 +265,7 @@
 	<input
 		bind:value={addressTo}
 		placeholder="Мира 31"
-		class="p-4 placeholder:text-[#bec1c7] border-gray-200/75 w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
+		class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-xl"
 		type="text"
 		name=""
 		id=""
@@ -277,7 +277,7 @@
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(2)}
-					class=" text-white w-full  bg-[#5BC43A] rounded-2xl p-4 z-10"
+					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10"
 					>Выбрать точку отправления</button
 				>
 			</div>
@@ -285,7 +285,7 @@
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(3)}
-					class=" text-white w-full  bg-[#5BC43A] rounded-2xl p-4 z-10"
+					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10"
 					>Выбрать точку прибытия</button
 				>
 			</div>
@@ -293,7 +293,7 @@
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(1)}
-					class=" text-white w-full  bg-[#5BC43A] rounded-2xl p-4 z-10">Очистить</button
+					class=" text-white w-full  bg-[#5BC43A] rounded-xl p-4 z-10">Очистить</button
 				>
 			</div>
 		{/if}

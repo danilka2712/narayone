@@ -9,7 +9,7 @@
 </script>
 
 <div class="h-[85vh] flex flex-col justify-between   px-5">
-	<div class=" items-end  rounded-2xl flex justify-between mt-5">
+	<div class=" items-end  rounded-xl flex justify-between mt-5">
 		<p class="font-medium animate-pulse text-[#3C3C43]/60">Мы подбираем для вас эвакуатор</p>
 	</div>
 	<div class=" flex justify-center">
@@ -17,7 +17,7 @@
 	</div>
 	<a class="bottom-5  " href="/">
 		<button
-			class="font-sans bg-[#0d1722] p-3 mt-2 rounded-2xl w-full   py-4   font-semibold text-white"
+			class="font-sans bg-[#0d1722] p-3 mt-2 rounded-xl w-full   py-4   font-semibold text-white"
 			>Поиск займет примерно: {minutes}:{seconds < 10 ? '0' : ''}{seconds}</button
 		>
 	</a>

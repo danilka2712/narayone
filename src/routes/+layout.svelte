@@ -9,7 +9,7 @@
 </nav>
 
 <a
-	class="fixed box bottom-7 left-5 bg-[#F3F3F4] flex items-center justify-center border rounded-2xl p-3 w-14 h-14 z-10"
+	class="fixed box bottom-7 left-5 bg-[#F3F3F4] flex items-center justify-center border rounded-xl p-3 w-14 h-14 z-10"
 	href="/"
 >
 	<img class="" src="/home.svg" alt="" /></a

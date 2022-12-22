@@ -30,7 +30,7 @@
 
 		<input
 			placeholder="Номер телефона"
-			class="p-4  placeholder:text-[#bec1c7]   border-gray-200/75  font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
+			class="p-4  placeholder:text-[#bec1c7]   border-[#f5f6f6]  font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-xl"
 			type="text"
 			name=""
 			id=""
@@ -68,9 +68,9 @@
 		text-base
 		font-normal
 		bg-white bg-clip-padding bg-no-repeat
-		 border border-solid border-gray-200/75
+		 border border-solid border-[#f5f6f6]
 		transition
-		ease-in-out rounded-2xl
+		ease-in-out rounded-xl
 		m-0
 		focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
 					aria-label="Default select example"
@@ -110,9 +110,9 @@
             text-base
             font-normal
             bg-white bg-clip-padding bg-no-repeat
-            border border-solid border-gray-200/75
+            border border-solid border-[#f5f6f6]
             transition
-            ease-in-out rounded-2xl
+            ease-in-out rounded-xl
             m-0
             focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
 					aria-label="Default select example"
@@ -147,7 +147,7 @@
 			</div>
 
 			{#if hiddenPogruz}
-				<div class="bg-white h-44 overflow-x-auto gap-4 mt-8 rounded-2xl absolute p-5 flex flex-col">
+				<div class="bg-white h-44 overflow-x-auto gap-4 mt-8 rounded-xl absolute p-5 flex flex-col">
 					<label class="flex gap-4 items-center">
 						<input type="checkbox" />
 						Вытащить с кувета
@@ -182,7 +182,7 @@
 			<p class=" text-xl font-semibold font-sans">{selected === 'BMW' ? '1990' : '2390'}₽</p>
 		</div>
 		<a href="/order/2">
-			<button class=" bg-[#5BC43A] p-3 mt-2 rounded-2xl w-full   py-4   font-semibold text-white"
+			<button class=" bg-[#0887FC] p-3 mt-2 rounded-xl w-full   py-4   font-semibold text-white"
 				>Оставить заявку</button
 			>
 		</a>
