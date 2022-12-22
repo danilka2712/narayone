@@ -182,7 +182,7 @@
 			<p class=" text-xl font-semibold font-sans">{selected === 'BMW' ? '1990' : '2390'}₽</p>
 		</div>
 		<a href="/order/2">
-			<button class=" bg-[#30DB5B] p-3 mt-2 rounded-2xl w-full   py-4   font-semibold text-white"
+			<button class=" bg-[#5BC43A] p-3 mt-2 rounded-2xl w-full   py-4   font-semibold text-white"
 				>Оставить заявку</button
 			>
 		</a>
