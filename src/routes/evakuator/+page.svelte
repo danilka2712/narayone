@@ -26,11 +26,11 @@
 	</div>
 
 	<div class="flex mb-6  flex-col">
-		<span class="text-[#8e8e8e] mb-3 text-sm">Контактные данные</span>
+		<span class="text-[#3C3C43]/60 mb-3 text-sm">Контактные данные</span>
 
 		<input
 			placeholder="Номер телефона"
-			class="p-4  placeholder:text-[#bec1c7]   border-[#e8e8e8]/75  font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
+			class="p-4  placeholder:text-[#bec1c7]   border-gray-200/50  font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-2xl"
 			type="text"
 			name=""
 			id=""
@@ -38,7 +38,7 @@
 	</div>
 	<InputAddress />
 	<div class="flex flex-col">
-		<span class="text-[#8e8e8e] mb-3  text-sm">Марка и модель автомобиля</span>
+		<span class="text-[#3C3C43]/60 mb-3  text-sm">Марка и модель автомобиля</span>
 
 		<div class=" flex gap-3 ">
 			<div class=" relative w-1/2 flex items-center">
@@ -68,7 +68,7 @@
 		text-base
 		font-normal
 		bg-white bg-clip-padding bg-no-repeat
-		 border border-solid border-[#e8e8e8]/75
+		 border border-solid border-gray-200/50
 		transition
 		ease-in-out rounded-2xl
 		m-0
@@ -110,7 +110,7 @@
             text-base
             font-normal
             bg-white bg-clip-padding bg-no-repeat
-            border border-solid border-[#e8e8e8]/75
+            border border-solid border-gray-200/50
             transition
             ease-in-out rounded-2xl
             m-0
@@ -178,7 +178,7 @@
 	</div>
 	<div class="mt-6 border-t-2 border-dotted">
 		<div class="flex items-center justify-between">
-			<span class="my-4 text-[#8e8e8e] text">Стоимость:</span>
+			<span class="my-4 text-[#3C3C43]/60 text">Стоимость:</span>
 			<p class=" text-xl font-semibold font-sans">{selected === 'BMW' ? '1990' : '2390'}₽</p>
 		</div>
 		<a href="/order/2">
