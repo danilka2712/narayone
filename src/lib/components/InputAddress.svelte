@@ -66,7 +66,7 @@
 					})
 				);
 				new maplibregl.Marker({
-					color: '#0887FC'
+					color: '#FF584B'
 				})
 					.setLngLat(whereCoordinate)
 					.addTo(map);
@@ -87,7 +87,7 @@
 				});
 				if (toCoordinate.length > 1) {
 					new maplibregl.Marker({
-						color: '#0887FC'
+						color: '#FF584B'
 					})
 						.setLngLat(toCoordinate)
 						.addTo(map);
@@ -102,7 +102,7 @@
 					})
 				);
 				let marker = new maplibregl.Marker({
-					color: '#0887FC'
+					color: '#FF584B'
 				})
 					.setLngLat([0, 0])
 					.addTo(map);
@@ -138,12 +138,12 @@
 					})
 				);
 				new maplibregl.Marker({
-					color: '#0887FC'
+					color: '#FF584B'
 				})
 					.setLngLat(whereCoordinate)
 					.addTo(map);
 				new maplibregl.Marker({
-					color: '#0887FC'
+					color: '#FF584B'
 				})
 					.setLngLat(toCoordinate)
 					.addTo(map);
@@ -192,12 +192,12 @@
 					})
 				);
 				let marker = new maplibregl.Marker({
-					color: '#0887FC'
+					color: '#FF584B'
 				})
 					.setLngLat([0, 0])
 					.addTo(map);
 				new maplibregl.Marker({
-					color: '#0887FC'
+					color: '#FF584B'
 				})
 					.setLngLat(whereCoordinate)
 					.addTo(map);
@@ -230,12 +230,12 @@
 					})
 				);
 				new maplibregl.Marker({
-					color: '#0887FC'
+					color: '#FF584B'
 				})
 					.setLngLat(whereCoordinate)
 					.addTo(map);
 				new maplibregl.Marker({
-					color: '#0887FC'
+					color: '#FF584B'
 				})
 					.setLngLat(toCoordinate)
 					.addTo(map);
@@ -288,7 +288,7 @@
 		<input
 			bind:value={addressWhere}
 			placeholder="Лукашевича 25"
-			class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#0887FC]  focus:outline-none border py-4 rounded-xl"
+			class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#FF584B]  focus:outline-none border py-4 rounded-xl"
 			type="text"
 			name="address"
 			id=""
@@ -303,7 +303,7 @@
 	<input
 		bind:value={addressTo}
 		placeholder="Мира 31"
-		class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#0887FC]  focus:outline-none border py-4 rounded-xl"
+		class="p-4 placeholder:text-[#bec1c7] border-[#f5f6f6] w-full font-sans focus:border-[#FF584B]  focus:outline-none border py-4 rounded-xl"
 		type="text"
 		name=""
 		id=""
@@ -315,7 +315,7 @@
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(2)}
-					class=" text-white w-full  bg-[#0887FC] rounded-xl p-4 z-10"
+					class=" text-white w-full  bg-[#FF584B] rounded-xl p-4 z-10"
 					>Выбрать точку отправления</button
 				>
 			</div>
@@ -323,7 +323,7 @@
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(3)}
-					class=" text-white w-full  bg-[#0887FC] rounded-xl p-4 z-10"
+					class=" text-white w-full  bg-[#FF584B] rounded-xl p-4 z-10"
 					>Выбрать точку прибытия</button
 				>
 			</div>
@@ -331,7 +331,7 @@
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
 					on:click={() => mapOpen(1)}
-					class=" text-white w-full  bg-[#0887FC] rounded-xl p-4 z-10">Очистить</button
+					class=" text-white w-full  bg-[#FF584B] rounded-xl p-4 z-10">Очистить</button
 				>
 			</div>
 		{/if}
