@@ -28,13 +28,13 @@
 </script>
 
 <div class="px-5">
-	<div class=" bg-[#FF584B] h-44 rounded-xl">
+	<div class=" bg-[#5BC43A] h-44 rounded-xl">
 		<img class="object-cover rounded-xl w-full h-full" src="padarki.svg" alt="" />
 	</div>
 	<div class=" flex flex-col gap-3 mb-8 mt-3">
 		{#each items as item}
 			<a href={item.href}>
-				<div class="p-6 relative bg-[#ffffff]  border border-[#fbf5f2]  flex rounded-xl">
+				<div class="p-6 relative bg-[#F9F9F9]  border border-[#fbf5f2]  flex rounded-xl">
 					<div>
 						<p class=" text-lg font-bold mb-2">{item.name}</p>
 						<p class="text-sm text-[#a5b3c1]">

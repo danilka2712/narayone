@@ -47,7 +47,7 @@
 	{:else}
 		<a class="flex items-center" href="/">
 			<button
-				class="font-sans flex items-center justify-center gap-2 bg-[#FF584B] p-3 mt-2 rounded-xl w-full   py-4   font-semibold text-white"
+				class="font-sans flex items-center justify-center gap-2 bg-[#5BC43A] p-3 mt-2 rounded-xl w-full   py-4   font-semibold text-white"
 			>
 				<img class=" " src="/Calling.svg" alt="" /> Позвонить</button
 			>
