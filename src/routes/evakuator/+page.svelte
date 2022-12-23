@@ -30,7 +30,7 @@
 
 		<input
 			placeholder="Номер телефона"
-			class="p-4  placeholder:text-[#a5b3c1]   border-[#fbf5f2]  font-sans focus:border-[#5BC43A]  focus:outline-none border py-4 rounded-xl"
+			class="p-4  placeholder:text-[#a5b3c1]   border-[#fbf5f2]  font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded-xl"
 			type="text"
 			name=""
 			id=""
@@ -72,7 +72,7 @@
 		transition
 		ease-in-out rounded-xl
 		m-0
-		focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
+		focus:text-gray-700 focus:bg-white focus:border-[#5BC43A ] focus:outline-none"
 					aria-label="Default select example"
 				>
 					<option class="text-black font-semibold" selected>Марка</option>
@@ -114,7 +114,7 @@
             transition
             ease-in-out rounded-xl
             m-0
-            focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
+            focus:text-gray-700 focus:bg-white focus:border-[#5BC43A ] focus:outline-none"
 					aria-label="Default select example"
 				>
 					<option class="text-black font-semibold" selected>Модель</option>
