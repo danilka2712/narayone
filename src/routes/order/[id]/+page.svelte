@@ -14,12 +14,12 @@
 	async function users() {
 		await socket.emit('findOneChat', { id: id }, (response) => {
 			orders = response;
-			console.log(orders);
 		});
 	}
 	users();
 	socket.on('update', (update) => {
 		orders = update;
+		console.log(orders);
 		users();
 	});
 </script>
