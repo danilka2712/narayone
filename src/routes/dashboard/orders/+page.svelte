@@ -9,7 +9,7 @@
 			addressTo: string;
 		}
 	];
-	const socket = io('http://localhost:3000');
+	const socket = io('https://nesttest-production.up.railway.app/');
 	let orders: Orders = [];
 	async function users() {
 		await socket.emit('findAllChat', {}, (response: Orders) => {
