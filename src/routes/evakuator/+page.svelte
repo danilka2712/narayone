@@ -18,49 +18,76 @@
 	}
 	let model = [];
 	let hiddenPogruz = false;
+	import { io } from 'socket.io-client';
+	import { goto } from '$app/navigation';
+	type Orders = [
+		{
+			id?: number;
+			phone: string;
+			content?: string;
+		}
+	];
+	let phone = '';
+	const socket = io('https://nesttest-production.up.railway.app');
+
+	async function sendMessage() {
+		await socket.emit(
+			'createChat',
+			{
+				phone: phone,
+				marka: selected,
+				model: selectedModels
+			},
+			(response: Orders) => {
+				goto(`order/${response.id}`);
+			}
+		);
+	}
 </script>
 
-<div class="px-5 mb-12">
-	<div>
-		<h1 class=" font-bold text-xl my-4 mb-7">Заказать эвакуатор</h1>
-	</div>
+<form on:submit={sendMessage}>
+	<div class="px-5 mb-12">
+		<div>
+			<h1 class=" font-bold text-xl my-4 mb-7">Заказать эвакуатор</h1>
+		</div>
 
-	<div class="flex mb-6  flex-col">
-		<span class="text-[#a5b3c1] mb-3 text-sm">Контактные данные</span>
+		<div class="flex mb-6  flex-col">
+			<span class="text-[#a5b3c1] mb-3 text-sm">Контактные данные</span>
 
-		<input
-			placeholder="Номер телефона"
-			class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/30   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded-xl"
-			type="text"
-			name=""
-			id=""
-		/>
-	</div>
-	<InputAddress />
-	<div class="flex flex-col">
-		<span class="text-[#a5b3c1] mb-3  text-sm">Марка и модель автомобиля</span>
+			<input
+				bind:value={phone}
+				placeholder="Номер телефона"
+				class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/30   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded-xl"
+				type="text"
+				name=""
+				id=""
+			/>
+		</div>
+		<InputAddress />
+		<div class="flex flex-col">
+			<span class="text-[#a5b3c1] mb-3  text-sm">Марка и модель автомобиля</span>
 
-		<div class=" flex gap-3 ">
-			<div class=" relative w-1/2 flex items-center">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="100%"
-					height="100%"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="feather right-4 absolute feather-chevron-up rotate-180 w-4 h-4"
-				>
-					<polyline points="18 15 12 9 6 15" />
-				</svg>
-				<select
-					class:active={selected === 'Марка'}
-					bind:value={selected}
-					on:change={() => models(selected)}
-					class="form-select appearance-none
+			<div class=" flex gap-3 ">
+				<div class=" relative w-1/2 flex items-center">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="100%"
+						height="100%"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="feather right-4 absolute feather-chevron-up rotate-180 w-4 h-4"
+					>
+						<polyline points="18 15 12 9 6 15" />
+					</svg>
+					<select
+						class:active={selected === 'Марка'}
+						bind:value={selected}
+						on:change={() => models(selected)}
+						class="form-select appearance-none
 		block
 		w-full
 		px-4
@@ -73,36 +100,36 @@
 		ease-in-out rounded-xl
 		m-0
 		focus:text-gray-700 focus:bg-white focus:border-[#5BC43A ] focus:outline-none"
-					aria-label="Default select example"
-				>
-					<option class="text-black font-semibold" selected>Марка</option>
+						aria-label="Default select example"
+					>
+						<option class="text-black font-semibold" selected>Марка</option>
 
-					{#each brands() as question}
-						<option class="text-black " value={question}>
-							{question}
-						</option>
-					{/each}
-				</select>
-			</div>
-			<div class="a  w-1/2 relative flex items-center">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="100%"
-					height="100%"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="feather  right-4 absolute feather-chevron-up  rotate-180 w-4 h-4"
-				>
-					<polyline points="18 15 12 9 6 15" />
-				</svg>
-				<select
-					bind:value={selectedModels}
-					class:active={selectedModels === 'Модель'}
-					class="form-select  appearance-none
+						{#each brands() as question}
+							<option class="text-black " value={question}>
+								{question}
+							</option>
+						{/each}
+					</select>
+				</div>
+				<div class="a  w-1/2 relative flex items-center">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="100%"
+						height="100%"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="feather  right-4 absolute feather-chevron-up  rotate-180 w-4 h-4"
+					>
+						<polyline points="18 15 12 9 6 15" />
+					</svg>
+					<select
+						bind:value={selectedModels}
+						class:active={selectedModels === 'Модель'}
+						class="form-select  appearance-none
             block
             w-full
             px-4
@@ -115,79 +142,84 @@
             ease-in-out rounded-xl
             m-0
             focus:text-gray-700 focus:bg-white focus:border-[#5BC43A ] focus:outline-none"
-					aria-label="Default select example"
-				>
-					<option class="text-black font-semibold" selected>Модель</option>
+						aria-label="Default select example"
+					>
+						<option class="text-black font-semibold" selected>Модель</option>
 
-					{#each model as m}
-						<option class="text-black" value={m}>
-							{m}
-						</option>
-					{/each}
-				</select>
-			</div>
-		</div>
-		<div class="mt-5 flex">
-			<div class="flex items-center gap-2">
-				<button on:click={() => (hiddenPogruz = !hiddenPogruz)} class="">Сложность погрузки</button>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="100%"
-					height="100%"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="feather mt-1 feather-chevron-up rotate-180 w-4 h-4"
-				>
-					<polyline points="18 15 12 9 6 15" />
-				</svg>
-			</div>
-
-			{#if hiddenPogruz}
-				<div class="bg-white h-44 overflow-x-auto gap-4 mt-8 rounded-xl absolute p-5 flex flex-col">
-					<label class="flex gap-4 items-center">
-						<input type="checkbox" />
-						Вытащить с кувета
-					</label>
-					<label class="flex gap-4 items-center">
-						<input type="checkbox" />
-						Заблокировано колесо
-					</label>
-					<label class="flex gap-4 items-center">
-						<input type="checkbox" />
-						Заблокировано колесо
-					</label>
-					<label class="flex gap-4 items-center">
-						<input type="checkbox" />
-						Заблокировано колесо
-					</label>
-					<label class="flex gap-4 items-center">
-						<input type="checkbox" />
-						Заблокировано колесо
-					</label>
-					<label class="flex gap-4 items-center">
-						<input type="checkbox" />
-						Заблокировано колесо
-					</label>
+						{#each model as m}
+							<option class="text-black" value={m}>
+								{m}
+							</option>
+						{/each}
+					</select>
 				</div>
-			{/if}
+			</div>
+			<div class="mt-5 flex">
+				<div class="flex items-center gap-2">
+					<button on:click={() => (hiddenPogruz = !hiddenPogruz)} class=""
+						>Сложность погрузки</button
+					>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="100%"
+						height="100%"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="feather mt-1 feather-chevron-up rotate-180 w-4 h-4"
+					>
+						<polyline points="18 15 12 9 6 15" />
+					</svg>
+				</div>
+
+				{#if hiddenPogruz}
+					<div
+						class="bg-white h-44 overflow-x-auto gap-4 mt-8 rounded-xl absolute p-5 flex flex-col"
+					>
+						<label class="flex gap-4 items-center">
+							<input type="checkbox" />
+							Вытащить с кувета
+						</label>
+						<label class="flex gap-4 items-center">
+							<input type="checkbox" />
+							Заблокировано колесо
+						</label>
+						<label class="flex gap-4 items-center">
+							<input type="checkbox" />
+							Заблокировано колесо
+						</label>
+						<label class="flex gap-4 items-center">
+							<input type="checkbox" />
+							Заблокировано колесо
+						</label>
+						<label class="flex gap-4 items-center">
+							<input type="checkbox" />
+							Заблокировано колесо
+						</label>
+						<label class="flex gap-4 items-center">
+							<input type="checkbox" />
+							Заблокировано колесо
+						</label>
+					</div>
+				{/if}
+			</div>
 		</div>
-	</div>
-	<div class="mt-6 border-t-2 border-dotted">
-		<div class="flex items-center justify-between">
-			<span class="my-4 text-[#a5b3c1] text">Стоимость:</span>
-			<p class=" text-xl font-semibold font-sans">{selected === 'BMW' ? '1990' : '2390'}₽</p>
-		</div>
-		<a href="/order/2">
-			<button class=" bg-[#5BC43A] p-3 mt-2 rounded-xl w-full   py-4   font-semibold text-white"
+		<div class="mt-6 border-t-2 border-dotted">
+			<div class="flex items-center justify-between">
+				<span class="my-4 text-[#a5b3c1] text">Стоимость:</span>
+				<p class=" text-xl font-semibold font-sans">{selected === 'BMW' ? '1990' : '2390'}₽</p>
+			</div>
+			<button
+				type="submit"
+				class=" bg-[#5BC43A] p-3 mt-2 rounded-xl w-full   py-4   font-semibold text-white"
 				>Оставить заявку</button
 			>
-		</a>
+		</div>
 	</div>
-</div>
+</form>
 
 <style>
 	@media all and (display-mode: standalone) {
