@@ -1,43 +1,42 @@
 <script lang="ts">
 	import postCode from '$lib/components/postCode.json';
+	import { addressWhere, addressTo } from '../../store.js';
 	let whereCoordinate = [];
 	let toCoordinate = [];
-	let addressWhere = '';
-	let addressTo = '';
 	let postcode;
 	let postcode1;
-	$: addressWhere.length > 5 ? district() : '';
+	$: $addressWhere.length > 5 ? district() : '';
 	const district = () => {
-		let searce = postCode.find((dis) => dis.district.toLowerCase() === addressWhere.toLowerCase());
-		if (searce?.district.toLowerCase() === addressWhere.toLowerCase()) {
+		let searce = postCode.find((dis) => dis.district.toLowerCase() === $addressWhere.toLowerCase());
+		if (searce?.district.toLowerCase() === $addressWhere.toLowerCase()) {
 			postcode = searce.postcode;
 			postcode = postcode;
 		}
 	};
-	$: addressTo.length > 5 ? district1() : '';
+	$: $addressTo.length > 5 ? district1() : '';
 	const district1 = () => {
-		let searce = postCode.find((dis) => dis.district.toLowerCase() === addressTo.toLowerCase());
-		if (searce?.district.toLowerCase() === addressTo.toLowerCase()) {
+		let searce = postCode.find((dis) => dis.district.toLowerCase() === $addressTo.toLowerCase());
+		if (searce?.district.toLowerCase() === $addressTo.toLowerCase()) {
 			postcode1 = searce.postcode;
 			postcode1 = postcode1;
 		}
 	};
-	$: addressWhere.length > 5 ? searceWhere() : '';
+	$: $addressWhere.length > 5 ? searceWhere() : '';
 	async function searceWhere() {
 		const response = await fetch(
 			`https://api.mapbox.com/geocoding/v5/mapbox.places-permanent/${
-				postcode + ' ' + addressWhere + ' ' + 'Омск'
+				postcode + ' ' + $addressWhere + ' ' + 'Омск'
 			}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrNnJ6bDdzdzA5cnAza3F4aTVwcWxqdWEifQ.RFF7CVFKrUsZVrJsFzhRvQ&limit=2&fuzzyMatch`
 		);
 		const data = await response.json();
 		whereCoordinate = data.features[0].center;
 		console.log(whereCoordinate);
 	}
-	$: addressTo.length > 5 ? searceTo() : '';
+	$: $addressTo.length > 5 ? searceTo() : '';
 	async function searceTo() {
 		const response = await fetch(
 			`https://api.mapbox.com/geocoding/v5/mapbox.places-permanent/${
-				postcode1 + ' ' + addressTo + ' ' + 'Омск'
+				postcode1 + ' ' + $addressTo + ' ' + 'Омск'
 			}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrNnJ6bDdzdzA5cnAza3F4aTVwcWxqdWEifQ.RFF7CVFKrUsZVrJsFzhRvQ&limit=2&fuzzyMatch`
 		);
 		const data = await response.json();
@@ -282,12 +281,13 @@
 	let items;
 </script>
 
+{$addressWhere}
 <span class="text-[#a5b3c1]  text-sm">Укажите маршрут</span>
 <div class=" my-3">
 	<form action=" " class=" relative">
-		<div class=" absolute top-6 left-4 bg-[#090f21] rounded-full w-3 h-3"></div>
+		<div class=" absolute top-6 left-4 bg-[#090f21] rounded-full w-3 h-3" />
 		<input
-			bind:value={addressWhere}
+			bind:value={$addressWhere}
 			placeholder="Лукашевича 25"
 			class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/30  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded-xl"
 			type="text"
@@ -295,15 +295,16 @@
 			id=""
 			autocomplete="address-line1"
 		/>
-		<button on:click={() => activeMap()} class=" absolute text-sm font-medium  right-4 top-5 "
-			>Карта</button
+		<button
+			on:click|preventDefault={() => activeMap()}
+			class=" absolute text-sm font-medium  right-4 top-5 ">Карта</button
 		>
 	</form>
 </div>
 <div class="mb-4 relative">
-	<img class=" w-5 absolute top-5 left-3" src="/Location.svg" alt="">
+	<img class=" w-5 absolute top-5 left-3" src="/Location.svg" alt="" />
 	<input
-		bind:value={addressTo}
+		bind:value={$addressTo}
 		placeholder="Мира 31"
 		class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/30  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded-xl"
 		type="text"
@@ -316,7 +317,7 @@
 		{#if numbers === 1}
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
-					on:click={() => mapOpen(2)}
+					on:click|preventDefault={() => mapOpen(2)}
 					class=" text-white w-full  bg-[#5BC43A ] rounded-xl p-4 z-10"
 					>Выбрать точку отправления</button
 				>
@@ -324,7 +325,7 @@
 		{:else if numbers === 2}
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
-					on:click={() => mapOpen(3)}
+					on:click|preventDefault={() => mapOpen(3)}
 					class=" text-white w-full  bg-[#5BC43A ] rounded-xl p-4 z-10"
 					>Выбрать точку прибытия</button
 				>
@@ -332,7 +333,7 @@
 		{:else if numbers === 3}
 			<div class=" absolute bottom-4 z-10 w-full px-4">
 				<button
-					on:click={() => mapOpen(1)}
+					on:click|preventDefault={() => mapOpen(1)}
 					class=" text-white w-full  bg-[#5BC43A ] rounded-xl p-4 z-10">Очистить</button
 				>
 			</div>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import InputAddress from '$lib/components/InputAddress.svelte';
 	import carModel from './carModel.json';
-
+	import { addressWhere, addressTo } from '../../store.js';
 	function brands() {
 		return carModel.map((car) => car.brand);
 	}
@@ -28,7 +28,7 @@
 		}
 	];
 	let phone = '';
-	const socket = io('https://nesttest-production.up.railway.app');
+	const socket = io('http://localhost:3000');
 
 	async function sendMessage() {
 		await socket.emit(
@@ -36,7 +36,9 @@
 			{
 				phone: phone,
 				marka: selected,
-				model: selectedModels
+				model: selectedModels,
+				addressWhere: $addressWhere,
+				addressTo: $addressTo
 			},
 			(response: Orders) => {
 				goto(`order/${response.id}`);
