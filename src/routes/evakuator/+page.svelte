@@ -16,7 +16,13 @@
 			return;
 		});
 	}
-	let model = [];
+	let model: Array<Models> = [];
+	type Models = [
+		{
+			brand: string;
+			models: string;
+		}
+	];
 	let hiddenPogruz = false;
 	import { io } from 'socket.io-client';
 	import { goto } from '$app/navigation';
@@ -27,7 +33,7 @@
 			content?: string;
 		}
 	];
-	let phone = '';
+	let phone: string = '';
 	const socket = io('https://nesttest-production.up.railway.app/');
 
 	async function sendMessage() {
@@ -51,7 +57,7 @@
 	<div class="px-5 flex justify-between flex-col">
 		<div class="">
 			<div>
-				<h1 class=" font-bold text-xl my-4 mb-7">Заказать эвакуатор</h1>
+				<h1 class=" font-bold text-lg my-4 mb-7">Заказать эвакуатор</h1>
 			</div>
 
 			<div class="flex mb-6  flex-col">
@@ -64,6 +70,7 @@
 					type="text"
 					name=""
 					id=""
+					required
 				/>
 			</div>
 			<InputAddress />

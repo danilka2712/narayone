@@ -31,7 +31,8 @@
 	<div class=" bg-[#5BC43A] h-44 rounded">
 		<img class="object-cover rounded w-full h-full" src="padarki.svg" alt="" />
 	</div>
-	<div class=" flex flex-col gap-3 mb-8 mt-3">
+
+	<div class=" flex flex-col gap-3 mt-3 mb-8">
 		{#each items as item}
 			<a href={item.href}>
 				<div class="p-6 relative bg-[#FFFFFF]  border border-[#D0D2D3]/50 flex rounded">
@@ -44,8 +45,8 @@
 					<div class="">
 						<img class="w-32 absolute right-1 top-4" src={item.img} alt="" />
 					</div>
-				</div></a
-			>
+				</div>
+			</a>
 		{/each}
 	</div>
 </div>
