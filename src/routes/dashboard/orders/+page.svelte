@@ -36,7 +36,7 @@
 
 <div class="flex px-5 flex-col gap-5">
 	{#each orders as o}
-		<div class=" border-b bg-white rounded-xl p-5">
+		<div class=" border-b bg-white rounded p-5">
 			<div>
 				<h1 class=" font-sans"><span class="text-lg">Заказ </span>#{o.id}</h1>
 			</div>
@@ -66,7 +66,7 @@
 			{#if o.content === 'Поиск заказчика'}
 				<form on:submit={sendOrders}>
 					<button
-						class=" bg-[#5BC43A] p-3 mt-2 rounded-xl w-full   py-4   font-semibold text-white"
+						class=" bg-[#5BC43A] p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
 						on:click={() => (id = o.id)}
 						type="submit">Принять заказ</button
 					>
