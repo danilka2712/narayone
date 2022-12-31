@@ -289,7 +289,7 @@
 		<input
 			bind:value={$addressWhere}
 			placeholder="Лукашевича 25"
-			class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/50  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+			class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/40  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
 			type="text"
 			name="address"
 			id=""
@@ -306,7 +306,7 @@
 	<input
 		bind:value={$addressTo}
 		placeholder="Мира 31"
-		class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/50  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+		class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/40  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
 		type="text"
 		name=""
 		id=""

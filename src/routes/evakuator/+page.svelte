@@ -66,7 +66,7 @@
 				<input
 					bind:value={phone}
 					placeholder="Номер телефона"
-					class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/50   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+					class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
 					type="text"
 					name=""
 					id=""
@@ -105,7 +105,7 @@
 			text-base
 			font-normal
 			bg-white bg-clip-padding bg-no-repeat
-			 border border-solid border-[#D0D2D3]/50 
+			 border border-solid border-[#D0D2D3]/40 
 			transition
 			ease-in-out rounded
 			m-0
@@ -147,7 +147,7 @@
 				text-base
 				font-normal
 				bg-white bg-clip-padding bg-no-repeat
-				border border-solid border-[#D0D2D3]/50 
+				border border-solid border-[#D0D2D3]/40 
 				transition
 				ease-in-out rounded
 				m-0
@@ -166,7 +166,7 @@
 				</div>
 				<div class="mt-5 flex">
 					<div class="flex items-center gap-2">
-						<button on:click={() => (hiddenPogruz = !hiddenPogruz)} class=""
+						<button on:click|preventDefault={() => (hiddenPogruz = !hiddenPogruz)} class=""
 							>Сложность погрузки</button
 						>
 						<svg
