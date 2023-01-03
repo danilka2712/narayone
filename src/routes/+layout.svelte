@@ -25,7 +25,7 @@
 		</a>
 	</div>
 	<div class="flex space-x-4 justify-end">
-		<a href="/login" class="">
+		<a href="/register" class="">
 			<div class=" relative">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

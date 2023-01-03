@@ -44,6 +44,7 @@
 				type="submit"
 				class=" bg-[#5BC43A] p-3 rounded w-full   py-4   font-semibold text-white">Войти</button
 			>
+			<a class=" text-center" href="/login">Войти</a>
 		</div>
 	</form>
 </div>
