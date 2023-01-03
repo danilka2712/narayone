@@ -24,19 +24,18 @@
 			return;
 		});
 	}
-	let model: Array<Models> = [];
-	type Models = [
-		{
-			brand: string;
-			models: string;
-		}
-	];
+	let model: Models | any = [];
+	type Models = {
+		brand: string;
+		models: string;
+	};
+
 	let hiddenPogruz = false;
 	import { io } from 'socket.io-client';
 	import { goto } from '$app/navigation';
 	type Orders = [
 		{
-			id?: number;
+			id: number;
 			phone: string;
 			content?: string;
 		}

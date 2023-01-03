@@ -1,4 +1,6 @@
 <script>
+	import Menu from '$lib/components/Menu.svelte';
+
 	const items = [
 		{
 			name: 'Эвакуатор',
@@ -27,6 +29,7 @@
 	];
 </script>
 
+
 <div class="px-5">
 	<div class=" bg-[#5BC43A] h-44 rounded">
 		<img class="object-cover rounded w-full h-full" src="padarki.svg" alt="" />
@@ -35,7 +38,7 @@
 	<div class=" flex flex-col gap-3 mt-3 mb-8">
 		{#each items as item}
 			<a href={item.href}>
-				<div class="p-6 relative bg-[#FFFFFF]  border border-[#D0D2D3]/50 flex rounded">
+				<div class="p-6 relative bg-[#FFFFFF]  border border-[#D0D2D3]/40 flex rounded">
 					<div>
 						<p class=" text-lg font-bold mb-2">{item.name}</p>
 						<p class="text-sm text-[#a5b3c1]">

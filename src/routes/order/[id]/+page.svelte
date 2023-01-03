@@ -19,7 +19,6 @@
 	users();
 	socket.on('update', (update) => {
 		orders = update;
-		console.log(orders);
 		users();
 	});
 </script>

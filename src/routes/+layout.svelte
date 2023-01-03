@@ -4,7 +4,7 @@
 </script>
 
 <nav class="flex justify-between p-5">
-	<div class="">
+	<button class=" relative z-20">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="h-5 w-5"
@@ -18,31 +18,28 @@
 				d="M4 6h16M4 12h16M4 18h7"
 			/></svg
 		>
-	</div>
+	</button>
 	<div class=" justify-items-center">
 		<a href="/" class="">
-			<img class="w-24 mb-1" src="/logo.svg" alt="" />
+			<img class="w-24 mt-2" src="/logo.svg" alt="" />
 		</a>
 	</div>
 	<div class="flex space-x-4 justify-end">
-		<button class="">
+		<a href="/login" class="">
 			<div class=" relative">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="h-5 w-5"
-					fill="none"
+					width="1.5em"
+					height="2em"
+					preserveAspectRatio="xMidYMid meet"
 					viewBox="0 0 24 24"
-					stroke="currentColor"
 					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+						fill="currentColor"
+						d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2m0 7c2.67 0 8 1.33 8 4v3H4v-3c0-2.67 5.33-4 8-4m0 1.9c-2.97 0-6.1 1.46-6.1 2.1v1.1h12.2V17c0-.64-3.13-2.1-6.1-2.1Z"
 					/></svg
 				>
-				<span class="w-3 absolute -top-1 rounded-full h-3 bg-[#28b820]" />
 			</div>
-		</button>
+		</a>
 	</div>
 </nav>
 
