@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
 
 	let username = {
 		email: '',
@@ -30,10 +29,7 @@
 			goto('/dashboard/orders');
 		}
 	}
-	const key = localStorage.getItem('lastname');
-	if (key?.length !== 0) {
-		goto('/dashboard/orders');
-	}
+	
 </script>
 
 <div class="px-5 flex flex-col justify-center h-[60vh]">
