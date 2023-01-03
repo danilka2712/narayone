@@ -66,7 +66,6 @@
 	}
 </script>
 
-{selection}
 <form on:submit={sendMessage}>
 	<div class="px-5 flex justify-between flex-col">
 		<div class="">

@@ -30,7 +30,6 @@
 		);
 		const data = await response.json();
 		whereCoordinate = data.features[0].center;
-		console.log(whereCoordinate);
 	}
 	$: $addressTo.length > 5 ? searceTo() : '';
 	async function searceTo() {
@@ -41,13 +40,11 @@
 		);
 		const data = await response.json();
 		toCoordinate = data.features[0].center;
-		console.log(toCoordinate);
 	}
 	const mapOpen = (num) => {
 		setTimeout(async () => {
 			if (num === 1 && whereCoordinate.length > 1) {
 				numbers = 2;
-				console.log('Если есть что то в первом блоке');
 
 				let map = new maplibregl.Map({
 					container: 'map', // container id
@@ -107,13 +104,11 @@
 					.addTo(map);
 				map.on('move', function (e) {
 					let center = marker.setLngLat(map.getCenter());
-					console.log('sdasd', center);
 
 					whereCoordinate = center.getLngLat().toArray();
 				});
 			}
 			if (num === 2 && toCoordinate.length > 1) {
-				console.log('Если есть что то в втором блоке');
 				numbers = 3;
 				const response = await fetch(
 					`https://api.mapbox.com/directions/v5/mapbox/driving/${whereCoordinate};${toCoordinate}?annotations=maxspeed&overview=full&geometries=geojson&access_token=pk.eyJ1IjoiZGFuaWxrYTI3MTIiLCJhIjoiY2xiamFndWc2MDJoazNwcXZnaXZoNm9hYSJ9.lAMLaj7C67amMgE1yWU_WA`
@@ -238,7 +233,6 @@
 				})
 					.setLngLat(toCoordinate)
 					.addTo(map);
-				console.log(toCoordinate);
 				map.on('load', function () {
 					map.addSource('route', {
 						type: 'geojson',
@@ -281,7 +275,6 @@
 	let items;
 </script>
 
-{$addressWhere}
 <span class="text-[#a5b3c1]  text-sm">Укажите маршрут</span>
 <div class=" my-3">
 	<form action=" " class=" relative">

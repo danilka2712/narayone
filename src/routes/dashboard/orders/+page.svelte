@@ -18,7 +18,7 @@
 			response.map((conten) => {
 				if (conten.content === 'Поиск заказчика') {
 					orders = [...orders, conten];
-				}else{
+				} else {
 					orders = [];
 				}
 			});
@@ -70,7 +70,7 @@
 	};
 
 	async function loginUser() {
-		const response = await fetch('http://localhost:3000/auth/signin', {
+		const response = await fetch('https://nesttest-production.up.railway.app/auth/signin', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -87,7 +87,6 @@
 	}, 3000);
 </script>
 
-{JSON.stringify(orders)}
 {#if orders.length < 1}
 	{#if hidden}
 		Загрузка
@@ -104,7 +103,6 @@
 				<div class="flex my-4 items-center justify-between">
 					<label>
 						<span class="text-[#a5b3c1] mb-3 text-sm">Откуда</span>
-
 						<p class=" font-medium">{o.addressWhere}</p>
 					</label>
 					<svg
