@@ -26,25 +26,14 @@
 		localStorage.setItem('lastname', data.access_token);
 		if (data.statusCode === 400) {
 			errorEmail = data.message;
-		}else{
-            goto('/dashboard/orders')
-        }
-	
-	}
-	onMount(async () => {
-		const user = localStorage.getItem('lastname');
-		const response = await fetch('https://nesttest-production.up.railway.app/users/me', {
-			method: 'GET',
-			headers: {
-				Authorization: `Bearer ${user}`
-			}
-		});
-		const data = await response.json();
-		if (data.message !== 'Unauthorized') {
-			goto('/dashboard');
-		} else if (data.message === 'Unauthorized') {
+		} else {
+			goto('/dashboard/orders');
 		}
-	});
+	}
+	const key = localStorage.getItem('lastname');
+	if (key?.length !== 0) {
+		goto('/dashboard/orders');
+	}
 </script>
 
 <div class="px-5 flex flex-col justify-center h-[60vh]">
