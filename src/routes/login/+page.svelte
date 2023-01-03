@@ -27,7 +27,7 @@
 		if (data.statusCode === 400) {
 			errorEmail = data.message;
 		}else{
-            goto('/dashboard')
+            goto('/dashboard/orders')
         }
 	
 	}
