@@ -179,6 +179,18 @@
 				</div>
 				<div class="mt-5 flex">
 					<div class="flex items-center gap-2">
+						{#if hiddenPogruz}
+						<div
+							class="bg-white mb-64 h-56 overflow-x-auto gap-4 rounded absolute p-5 flex flex-col"
+						>
+							{#each menu as m}
+								<label class="flex gap-4 items-center">
+									<input bind:group={selection} value={m.price} type="checkbox" />
+									{m.name}
+								</label>
+							{/each}
+						</div>
+					{/if}
 						<button on:click|preventDefault={() => (hiddenPogruz = !hiddenPogruz)} class=""
 							>Сложность погрузки</button
 						>
@@ -198,18 +210,7 @@
 						</svg>
 					</div>
 
-					{#if hiddenPogruz}
-						<div
-							class="bg-white h-44 overflow-x-auto gap-4 mt-8 rounded absolute p-5 flex flex-col"
-						>
-							{#each menu as m}
-								<label class="flex gap-4 items-center">
-									<input bind:group={selection} value={m.price} type="checkbox" />
-									{m.name}
-								</label>
-							{/each}
-						</div>
-					{/if}
+					
 				</div>
 			</div>
 		</div>
@@ -217,7 +218,7 @@
 			<div class="flex items-center justify-between">
 				<span class="my-4 text-[#a5b3c1] text">Стоимость:</span>
 				<p class=" text-xl font-semibold font-sans">
-					{selected === 'BMW' ? (price = 1990) : (user += price)}₽
+					{(user += price)}₽
 				</p>
 			</div>
 			<button
