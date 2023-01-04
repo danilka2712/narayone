@@ -1,6 +1,4 @@
 <script>
-	import Menu from '$lib/components/Menu.svelte';
-
 	const items = [
 		{
 			name: 'Эвакуатор',

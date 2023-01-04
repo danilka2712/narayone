@@ -1,20 +1,30 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte/internal';
 
 	let username = {
 		email: '',
 		password: ''
 	};
 	async function loginUser() {
-		await fetch('https://nesttest-production.up.railway.app/auth/signup', {
+		const response = await fetch('https://nesttest-production.up.railway.app/auth/signup', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(username)
 		});
-		goto('/login');
+
+		if (response.ok) {
+			goto('/login');
+		}
 	}
+	onMount(() => {
+		const redirect = localStorage.getItem('lastname');
+		if (redirect?.length > 2) {
+			goto('/dashboard');
+		}
+	});
 </script>
 
 <div class="px-5 flex flex-col justify-center h-[60vh]">

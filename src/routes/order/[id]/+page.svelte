@@ -1,18 +1,24 @@
 <script lang="ts">
 	import { io } from 'socket.io-client';
 	import { page } from '$app/stores';
-	interface Orders {
-		id?: number;
-		phone?: string;
-		content?: string;
+
+	interface Order {
+		id: number;
+		createdAt: string;
+		phone: string;
+		marka: string;
+		model: string;
+		addressTo: string;
+		addressWhere: string;
+		content: string;
 	}
 
 	let id: number = Number($page.params.id);
 
 	const socket = io('https://nesttest-production.up.railway.app/');
-	let orders: Orders = [];
+	let orders: Order[] = [];
 	async function users() {
-		await socket.emit('findOneChat', { id: id }, (response) => {
+		await socket.emit('findOneChat', { id: id }, (response: Order[]) => {
 			orders = response;
 		});
 	}
