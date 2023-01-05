@@ -1,6 +1,12 @@
 <script lang="ts">
 	import InputAddress from '$lib/components/InputAddress.svelte';
 	import carModel from './carModel.json';
+	import type { PageData, ActionData } from './$types';
+
+	export let data: PageData;
+
+	export let form: ActionData;
+
 	import { addressWhere, addressTo } from '../../store.js';
 	function brands() {
 		return carModel.map((car) => car.brand);
@@ -180,17 +186,17 @@
 				<div class="mt-5 flex">
 					<div class="flex items-center gap-2">
 						{#if hiddenPogruz}
-						<div
-							class="bg-white mb-64 h-56 overflow-x-auto gap-4 rounded absolute p-5 flex flex-col"
-						>
-							{#each menu as m}
-								<label class="flex gap-4 items-center">
-									<input bind:group={selection} value={m.price} type="checkbox" />
-									{m.name}
-								</label>
-							{/each}
-						</div>
-					{/if}
+							<div
+								class="bg-white mb-64 h-56 overflow-x-auto gap-4 rounded absolute p-5 flex flex-col"
+							>
+								{#each menu as m}
+									<label class="flex gap-4 items-center">
+										<input bind:group={selection} value={m.price} type="checkbox" />
+										{m.name}
+									</label>
+								{/each}
+							</div>
+						{/if}
 						<button on:click|preventDefault={() => (hiddenPogruz = !hiddenPogruz)} class=""
 							>Сложность погрузки</button
 						>
@@ -209,8 +215,6 @@
 							<polyline points="18 15 12 9 6 15" />
 						</svg>
 					</div>
-
-					
 				</div>
 			</div>
 		</div>

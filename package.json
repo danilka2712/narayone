@@ -33,7 +33,9 @@
 		"@mapbox/mapbox-sdk": "^0.14.0",
 		"@maplibre/maplibre-gl-directions": "^0.2.8",
 		"@picocss/pico": "^1.5.6",
-		"mapbox-gl": "^2.11.1",
+		"dadata-suggestions": "^1.1.1",
+		"mapbox-gl": "^2.12.0",
+		"maplibre-gl": "^2.4.0",
 		"socket.io-client": "^4.5.4",
 		"svelte-typewriter": "^3.1.4"
 	}
