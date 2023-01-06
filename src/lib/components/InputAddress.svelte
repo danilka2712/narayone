@@ -1,5 +1,6 @@
 <script lang="ts">
 	import maplibregl from 'maplibre-gl';
+	import { address } from '../../store.js';
 
 	const token = 'd512112976df66bf36f8f17e8dd9cc4cfc28f95e';
 	let query: string = '';
@@ -34,9 +35,8 @@
 		);
 		const data = await response.json();
 		result = data.suggestions.map((i) => i.value);
-		console.log(result);
 		let items = data.suggestions[0].data.geo_lon + ',' + data.suggestions[0].data.geo_lat;
-		address[0] = JSON.parse('[' + items + ']');
+		$address[0] = JSON.parse('[' + items + ']');
 	}
 
 	let query1: string = '';
@@ -72,71 +72,112 @@
 		const data = await response.json();
 		result1 = data.suggestions.map((i) => i.value);
 		let items = data.suggestions[0].data.geo_lon + ',' + data.suggestions[0].data.geo_lat;
-		address[1] = JSON.parse('[' + items + ']');
+		$address[1] = JSON.parse('[' + items + ']');
 	}
-	const address = [[], []];
 	let mapHidden = false;
 	async function mapActive() {
 		mapHidden = !mapHidden;
-		const response = await fetch(
-			`https://api.mapbox.com/directions/v5/mapbox/driving/${address[0]};${address[1]}?annotations=maxspeed&overview=full&geometries=geojson&access_token=pk.eyJ1IjoiZGFuaWxrYTI3MTIiLCJhIjoiY2xiamFndWc2MDJoazNwcXZnaXZoNm9hYSJ9.lAMLaj7C67amMgE1yWU_WA`
-		);
-		const data = await response.json();
-		let items = data.routes[0].geometry.coordinates;
-		let map = new maplibregl.Map({
-			container: 'map', // container id
-			style:
-				'https://api.maptiler.com/maps/8d081a87-527e-4c3b-ab7f-10a7c83dbc2e/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
-			center: address[0], // starting position [lng, lat]
-			zoom: 12 // starting zoom
-		});
-		map.addControl(
-			new maplibregl.GeolocateControl({
-				positionOptions: {
-					enableHighAccuracy: true
-				},
-				trackUserLocation: true
-			})
-		);
-		new maplibregl.Marker({
-			color: '#5BC43A '
-		})
-			.setLngLat(address[0])
-			.addTo(map);
-		new maplibregl.Marker({
-			color: '#5BC43A '
-		})
-			.setLngLat(address[1])
-			.addTo(map);
-		map.on('load', function () {
-			map.addSource('route', {
-				type: 'geojson',
-				data: {
-					type: 'Feature',
-					properties: {},
-					geometry: {
-						type: 'LineString',
-						coordinates: items
-					}
+		if (mapHidden === true) {
+			setTimeout(async () => {
+				if ($address[0].length === 0) {
+					let map = new maplibregl.Map({
+						container: 'map', // container id
+						style:
+							'https://api.maptiler.com/maps/8d081a87-527e-4c3b-ab7f-10a7c83dbc2e/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
+						center: [0, 0], // starting position [lng, lat]
+						zoom: 12 // starting zoom
+					});
+					map.addControl(
+						new maplibregl.GeolocateControl({
+							positionOptions: {
+								enableHighAccuracy: true
+							},
+							trackUserLocation: true
+						})
+					);
+				} else if ($address[1].length === 0) {
+					let map = new maplibregl.Map({
+						container: 'map', // container id
+						style:
+							'https://api.maptiler.com/maps/8d081a87-527e-4c3b-ab7f-10a7c83dbc2e/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
+						center: [0, 0], // starting position [lng, lat]
+						zoom: 12 // starting zoom
+					});
+					map.addControl(
+						new maplibregl.GeolocateControl({
+							positionOptions: {
+								enableHighAccuracy: true
+							},
+							trackUserLocation: true
+						})
+					);
+					new maplibregl.Marker({
+						color: '#5BC43A '
+					})
+						.setLngLat($address[0])
+						.addTo(map);
+				} else {
+					const response = await fetch(
+						`https://api.mapbox.com/directions/v5/mapbox/driving/${$address[0]};${address[1]}?annotations=maxspeed&overview=full&geometries=geojson&access_token=pk.eyJ1IjoiZGFuaWxrYTI3MTIiLCJhIjoiY2xiamFndWc2MDJoazNwcXZnaXZoNm9hYSJ9.lAMLaj7C67amMgE1yWU_WA`
+					);
+					const data = await response.json();
+					let items = data.routes[0].geometry.coordinates;
+					let map = new maplibregl.Map({
+						container: 'map', // container id
+						style:
+							'https://api.maptiler.com/maps/8d081a87-527e-4c3b-ab7f-10a7c83dbc2e/style.json?key=EfH47Bb8jzv9Pl57bst7', // style URL
+						center: $address[0], // starting position [lng, lat]
+						zoom: 12 // starting zoom
+					});
+					map.addControl(
+						new maplibregl.GeolocateControl({
+							positionOptions: {
+								enableHighAccuracy: true
+							},
+							trackUserLocation: true
+						})
+					);
+					new maplibregl.Marker({
+						color: '#5BC43A '
+					})
+						.setLngLat($address[0])
+						.addTo(map);
+					new maplibregl.Marker({
+						color: '#5BC43A '
+					})
+						.setLngLat($address[1])
+						.addTo(map);
+					map.on('load', function () {
+						map.addSource('route', {
+							type: 'geojson',
+							data: {
+								type: 'Feature',
+								properties: {},
+								geometry: {
+									type: 'LineString',
+									coordinates: items
+								}
+							}
+						});
+						map.addLayer({
+							id: 'route',
+							type: 'line',
+							source: 'route',
+							layout: {
+								'line-join': 'round',
+								'line-cap': 'round'
+							},
+							paint: {
+								'line-color': '#888',
+								'line-width': 8
+							}
+						});
+					});
 				}
-			});
-			map.addLayer({
-				id: 'route',
-				type: 'line',
-				source: 'route',
-				layout: {
-					'line-join': 'round',
-					'line-cap': 'round'
-				},
-				paint: {
-					'line-color': '#888',
-					'line-width': 8
-				}
-			});
-		});
+			}, 300);
+		}
 	}
 </script>
-
 <form method="POST" action="?/login">
 	<span class="text-[#a5b3c1]  text-sm">Укажите маршрут</span>
 	<div class=" relative my-3">
@@ -150,7 +191,9 @@
 			name="query"
 			id=""
 		/>
-		<button class=" absolute top-4 right-4" on:click|preventDefault={mapActive}>Карта</button>
+		<button class=" bg-white p-3 top-1 absolute  right-1" on:click|preventDefault={mapActive}
+			>Карта</button
+		>
 		{#if hidden}
 			<div class=" absolute top-14 border-[#D0D2D3]/40 border-b border-x z-20 w-full  bg-white p-4">
 				<div class="flex flex-col gap-5">
@@ -186,7 +229,6 @@
 		{/if}
 	</div>
 </form>
-
 {#if mapHidden}
 	<div id="map" class=" h-96" />
 {/if}

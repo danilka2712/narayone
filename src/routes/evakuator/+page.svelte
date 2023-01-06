@@ -2,12 +2,20 @@
 	import InputAddress from '$lib/components/InputAddress.svelte';
 	import carModel from './carModel.json';
 	import type { PageData, ActionData } from './$types';
+	import { imask } from 'svelte-imask';
 
+	const options = {
+		mask: '+{7}(000)000-00-00'
+	};
+
+	function complete({ detail: imask }) {
+		phone = imask._value;
+	}
 	export let data: PageData;
 
 	export let form: ActionData;
 
-	import { addressWhere, addressTo } from '../../store.js';
+	import { address } from '../../store.js';
 	function brands() {
 		return carModel.map((car) => car.brand);
 	}
@@ -56,8 +64,8 @@
 				phone: phone,
 				marka: selected,
 				model: selectedModels,
-				addressWhere: $addressWhere,
-				addressTo: $addressTo
+				addressWhere: $address[0].toString(),
+				addressTo: $address[1].toString()
 			},
 			(response: Orders) => {
 				goto(`order/${response.id}`);
@@ -71,7 +79,6 @@
 		user = selection.reduce((a, b) => Number(a) + Number(b));
 	}
 </script>
-
 <form on:submit={sendMessage}>
 	<div class="px-5 flex justify-between flex-col">
 		<div class="">
@@ -83,13 +90,13 @@
 				<span class="text-[#a5b3c1] mb-3 text-sm">Контактные данные</span>
 
 				<input
-					bind:value={phone}
 					placeholder="Номер телефона"
 					class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
-					type="text"
-					name=""
-					id=""
+					use:imask={options}
+					name="phone"
+					type="tel"
 					required
+					on:complete={complete}
 				/>
 			</div>
 			<InputAddress />

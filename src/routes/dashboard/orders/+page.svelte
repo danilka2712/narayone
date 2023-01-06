@@ -41,10 +41,37 @@
 	}
 </script>
 
-<div>
+<div class="  border border-[#D0D2D3]/40 rounded bg-white mx-4 p-4">
 	{#each orders as o}
-		<h1>{o.content}</h1>
-		<p>{o.id}</p>
-		<button on:click={() => addSumbit(o.id)}>Отправить</button>
+		<div class="flex items-center ">
+			<div class="flex items-center gap-2">
+				<div class=" bg-[#5BC43A] rounded-full w-2 h-2" />
+				<h1 class="">{o.content}</h1>
+			</div>
+		</div>
+		<div class="my-3 border-b border-dashed pb-3 flex justify-between">
+			<div class="">
+				<span class="text-sm text-[#a5b3c1]">Откуда</span>
+				<p class=" font-medium mb-3">г.Омск, Лукашевича, д 25</p>
+				<span class="text-sm text-[#a5b3c1]">Куда</span>
+				<p class=" font-medium">г.Омск, Лукашевича, д 1</p>
+			</div>
+		
+		</div>
+		<div class="my-3 border-b border-dashed pb-3">
+			<p class=" text-sm text-[#a5b3c1]">Марка/Модель</p>
+			<h1 class=" font-medium ">{o.marka} {o.model}</h1>
+		</div>
+		<div class="flex items-center justify-between">
+			<span class="my-4 text-sm text-[#a5b3c1] ">Стоимость:</span>
+			<p class=" text-lg font-semibold font-sans">3500₽</p>
+		</div>
+		<div class="flex justify-between">
+			<button
+				on:click={() =>addSumbit(o.id)}
+				class=" bg-[#5BC43A] p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
+				>Принять</button
+			>
+		</div>
 	{/each}
 </div>
