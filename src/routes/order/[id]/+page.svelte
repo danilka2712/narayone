@@ -77,7 +77,7 @@
 		</div>
 	</div>
 {:else}
-<div class=" flex flex-col px-5 h-[90vh] justify-between">
+<div class=" flex flex-col px-5 h-[80vh] justify-between">
 	<div class="">
 		<h1 class=" text-lg font-medium font-sans">Заявка №{orders.id}</h1>
 		<div class="my-3">
