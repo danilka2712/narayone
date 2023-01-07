@@ -7,3 +7,13 @@ body {
 	background: #fcfcfc;
 	color: #090f21;
 }
+:root {
+	--toastBackground: #80e27b;
+    --toastColor: #fbfbfb;
+	--toastBarBackground: #ffffff;
+    --toastContainerBottom: 2rem;
+    --toastContainerRight: auto;
+    --toastContainerBottom: auto;
+    --toastContainerLeft: calc(50vw - 8rem);
+  }
+ 

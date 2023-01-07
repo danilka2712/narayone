@@ -118,7 +118,7 @@
 						.addTo(map);
 				} else {
 					const response = await fetch(
-						`https://api.mapbox.com/directions/v5/mapbox/driving/${$address[0]};${address[1]}?annotations=maxspeed&overview=full&geometries=geojson&access_token=pk.eyJ1IjoiZGFuaWxrYTI3MTIiLCJhIjoiY2xiamFndWc2MDJoazNwcXZnaXZoNm9hYSJ9.lAMLaj7C67amMgE1yWU_WA`
+						`https://api.mapbox.com/directions/v5/mapbox/driving/${$address[0]};${$address[1]}?annotations=maxspeed&overview=full&geometries=geojson&access_token=pk.eyJ1IjoiZGFuaWxrYTI3MTIiLCJhIjoiY2xiamFndWc2MDJoazNwcXZnaXZoNm9hYSJ9.lAMLaj7C67amMgE1yWU_WA`
 					);
 					const data = await response.json();
 					let items = data.routes[0].geometry.coordinates;

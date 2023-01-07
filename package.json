@@ -14,6 +14,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0-next.90",
 		"@sveltejs/kit": "^1.0.0-next.587",
+		"@types/express-session": "^1.17.5",
 		"@types/mapbox__mapbox-sdk": "^0.13.4",
 		"@types/mapbox-gl": "^2.7.10",
 		"autoprefixer": "^10.4.13",
@@ -33,7 +34,9 @@
 		"@mapbox/mapbox-sdk": "^0.14.0",
 		"@maplibre/maplibre-gl-directions": "^0.2.8",
 		"@picocss/pico": "^1.5.6",
+		"@zerodevx/svelte-toast": "1.0.0-rc.1",
 		"dadata-suggestions": "^1.1.1",
+		"express-session": "^1.17.3",
 		"mapbox-gl": "^2.12.0",
 		"maplibre-gl": "^2.4.0",
 		"socket.io-client": "^4.5.4",
