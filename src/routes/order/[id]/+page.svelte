@@ -92,9 +92,8 @@
 					<span class="text-sm text-[#a5b3c1]">Имя</span>
 					<p class=" mb-2 font-sans ">{orders.author.name}</p>
 					<span class="text-sm text-[#a5b3c1]">Номер телефона</span>
-					<p class=" font-sans">{orders.phone}</p>
+					<p class=" font-sans">{orders.author.phone}</p>
 				</div>
-
 				<div class="my-3">
 					<div class=" flex items-center gap-2">
 						<a href="" class="bg-[#5BC43A] p-3 mt-2 flex gap-2 justify-center rounded w-full   py-4   font-semibold text-white ">

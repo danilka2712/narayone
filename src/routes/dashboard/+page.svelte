@@ -45,8 +45,8 @@
 					on:keypress={() => (hiddenName = true)}
 					bind:value={username.name}
 					class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
-					name="phone"
-					type="tel"
+					name="name"
+					type="text"
 					required
 				/>
 				{#if hiddenName}
@@ -57,7 +57,6 @@
 			</div>
 			<div class=" relative flex flex-col">
 				<span class="text-[#a5b3c1] mb-3 text-sm">Номер телефона</span>
-
 				<input
 					on:keypress={() => (hiddenPhone = true)}
 					bind:value={username.phone}
