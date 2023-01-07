@@ -7,7 +7,7 @@
 		password: ''
 	};
 	async function loginUser() {
-		const response = await fetch('http://localhost:3000/auth/signup', {
+		const response = await fetch('https://nesttest-production.up.railway.app/auth/signup', {
 			method: 'POST',
 
 			headers: {
