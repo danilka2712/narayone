@@ -35,7 +35,7 @@
 
 	<div class=" flex flex-col gap-3 mt-3 mb-8">
 		{#each items as item}
-			<a href={item.href}>
+			<a data-sveltekit-reload href={item.href}>
 				<div class="p-6 relative bg-[#FFFFFF]  border border-[#D0D2D3]/40 flex rounded">
 					<div>
 						<p class=" text-lg font-bold mb-2">{item.name}</p>

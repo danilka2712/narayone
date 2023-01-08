@@ -62,7 +62,7 @@
 			<p class=" text-sm text-red-500">{errorUser}</p>
 			<button
 				type="submit"
-				class=" bg-[#5BC43A] p-3 rounded w-full   py-4   font-semibold text-white">Войти</button
+				class="transition duration-300 hover:bg-[#54b935] ease-in-out bg-[#5BC43A] p-3 rounded w-full   py-4   font-semibold text-white">Войти</button
 			>
 		</div>
 	</form>

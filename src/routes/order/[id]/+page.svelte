@@ -125,7 +125,7 @@
 	<div>
 		<button
 		type="submit"
-		class=" bg-[#c43a3a] p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
+		class=" bg-[#f14848] border p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
 		>Отменить заявку</button
 	>
 	</div>

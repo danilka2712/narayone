@@ -1,23 +1,23 @@
 <script lang="ts">
 	import maplibregl from 'maplibre-gl';
 	import { address } from '../../store.js';
+	import { query, query1 } from '../../store.js';
 
 	const token = 'd512112976df66bf36f8f17e8dd9cc4cfc28f95e';
-	let query: string = '';
 	let result: string = '';
 	let hidden: boolean = false;
-	$: if (query.length > 4) {
+	$: if ($query.length > 4) {
 		addAddress();
 	}
 	function addHidden(r) {
-		query = r;
+		$query = r;
 		setTimeout(() => {
 			hidden = false;
 		}, 100);
 	}
 	async function addAddress() {
 		hidden = true;
-		if (query.length <= 5) {
+		if ($query.length <= 5) {
 			hidden = false;
 		}
 		const response = await fetch(
@@ -30,7 +30,7 @@
 					Accept: 'application/json',
 					Authorization: 'Token ' + token
 				},
-				body: JSON.stringify({ query: query, count: 4 })
+				body: JSON.stringify({ query: $query, count: 4 })
 			}
 		);
 		const data = await response.json();
@@ -39,21 +39,20 @@
 		$address[0] = JSON.parse('[' + items + ']');
 	}
 
-	let query1: string = '';
 	let result1: string = '';
 	let hidden1: boolean = false;
-	$: if (query1.length > 4) {
+	$: if ($query1.length > 4) {
 		addAddress1();
 	}
 	function addHidden1(r) {
-		query1 = r;
+		$query1 = r;
 		setTimeout(() => {
 			hidden1 = false;
 		}, 100);
 	}
 	async function addAddress1() {
 		hidden1 = true;
-		if (query1.length <= 5) {
+		if ($query1.length <= 5) {
 			hidden1 = false;
 		}
 		const response = await fetch(
@@ -66,7 +65,7 @@
 					Accept: 'application/json',
 					Authorization: 'Token ' + token
 				},
-				body: JSON.stringify({ query: query1, count: 4 })
+				body: JSON.stringify({ query: $query1, count: 4 })
 			}
 		);
 		const data = await response.json();
@@ -111,7 +110,7 @@
 							}
 						);
 						const data = await response.json();
-						query = data.suggestions[0].value;
+						$query = data.suggestions[0].value;
 					});
 
 					map.addControl(
@@ -162,7 +161,7 @@
 							}
 						);
 						const data = await response.json();
-						query1 = data.suggestions[0].value;
+						$query1 = data.suggestions[0].value;
 					});
 					new maplibregl.Marker({
 						color: '#5BC43A '
@@ -232,15 +231,16 @@
 	}
 </script>
 
+{$query}
 <form method="POST" action="?/login">
 	<span class="text-[#a5b3c1]  text-sm">Укажите маршрут</span>
 	<div class=" relative my-3">
 		<div class=" absolute top-6 left-4 bg-[#090f21] rounded-full w-3 h-3" />
 		<input
 			on:click={() => (hidden = false)}
-			bind:value={query}
+			bind:value={$query}
 			placeholder="Лукашевича 25"
-			class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/40  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+			class="p-4 focus:border-[#5BC43A] pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/40  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
 			type="text"
 			name="query"
 			id=""
@@ -262,9 +262,9 @@
 		<img class=" w-5 absolute top-5 left-3" src="/Location.svg" alt="" />
 		<input
 			on:click={() => (hidden1 = false)}
-			bind:value={query1}
+			bind:value={$query1}
 			placeholder="Мира 31"
-			class="p-4 pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/40  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+			class="p-4 focus:border-[#5BC43A] pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/40  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
 			type="text"
 			name=""
 			id=""

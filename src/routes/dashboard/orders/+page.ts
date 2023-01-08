@@ -14,7 +14,13 @@ export const load = (async ({ fetch }) => {
 		if (data.message === 'Unauthorized') {
 			throw redirect(302, '/login');
 		}
-	}
+		if (data.message === 'Internal server error') {
+			localStorage.removeItem('key');
+			throw redirect(302, '/login');
+		}
 
-	return {};
+		return {
+		
+		};
+	}
 }) satisfies PageLoad;

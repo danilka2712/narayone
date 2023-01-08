@@ -3,6 +3,7 @@
 	import carModel from './carModel.json';
 	import type { PageData, ActionData } from './$types';
 	import { imask } from 'svelte-imask';
+	import { query, query1 } from '../../store.js';
 
 	const options = {
 		mask: '+{7}(000)000-00-00'
@@ -52,6 +53,7 @@
 			id: number;
 			phone: string;
 			content?: string;
+			price: string
 		}
 	];
 	let phone: string = '';
@@ -64,8 +66,9 @@
 				phone: phone,
 				marka: selected,
 				model: selectedModels,
-				addressWhere: $address[0].toString(),
-				addressTo: $address[1].toString()
+				addressWhere: $query,
+				addressTo: $query1,
+				price: price.toString()
 			},
 			(response: Orders) => {
 				goto(`order/${response.id}`);
@@ -79,6 +82,7 @@
 		user = selection.reduce((a, b) => Number(a) + Number(b));
 	}
 </script>
+
 <form on:submit={sendMessage}>
 	<div class="px-5 flex justify-between flex-col">
 		<div class="">
@@ -91,7 +95,7 @@
 
 				<input
 					placeholder="Номер телефона"
-					class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+					class="p-4 focus:border-[#5BC43A] placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
 					use:imask={options}
 					name="phone"
 					type="tel"
@@ -135,7 +139,7 @@
 			transition
 			ease-in-out rounded
 			m-0
-			focus:text-gray-700 focus:bg-white focus:border-[#5BC43A ] focus:outline-none"
+			focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
 							aria-label="Default select example"
 						>
 							<option class="text-black font-semibold" selected>Марка</option>
@@ -177,7 +181,7 @@
 				transition
 				ease-in-out rounded
 				m-0
-				focus:text-gray-700 focus:bg-white focus:border-[#5BC43A ] focus:outline-none"
+				focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
 							aria-label="Default select example"
 						>
 							<option class="text-black font-semibold" selected>Модель</option>
@@ -234,7 +238,7 @@
 			</div>
 			<button
 				type="submit"
-				class=" bg-[#5BC43A] p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
+				class=" bg-[#5BC43A] transition duration-300 hover:bg-[#54b935] ease-in-out p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
 				>Оставить заявку</button
 			>
 		</div>
