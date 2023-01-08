@@ -87,6 +87,33 @@
 						center: [0, 0], // starting position [lng, lat]
 						zoom: 12 // starting zoom
 					});
+					let marker = new maplibregl.Marker({
+						color: '#5BC43A '
+					})
+						.setLngLat([0, 0])
+						.addTo(map);
+					map.on('drag', (e) => {
+						marker.setLngLat(map.getCenter());
+					});
+					map.on('dragend', async (e) => {
+						let coordinates = { lat: marker._lngLat.lat, lon: marker._lngLat.lng, count: 1 };
+						const response = await fetch(
+							'https://suggestions.dadata.ru/suggestions/api/4_1/rs/geolocate/address',
+							{
+								method: 'POST',
+								mode: 'cors',
+								headers: {
+									'Content-Type': 'application/json',
+									Accept: 'application/json',
+									Authorization: 'Token ' + token
+								},
+								body: JSON.stringify(coordinates)
+							}
+						);
+						const data = await response.json();
+						query = data.suggestions[0].value;
+					});
+
 					map.addControl(
 						new maplibregl.GeolocateControl({
 							positionOptions: {
@@ -111,6 +138,32 @@
 							trackUserLocation: true
 						})
 					);
+					let marker = new maplibregl.Marker({
+						color: '#5BC43A '
+					})
+						.setLngLat([0, 0])
+						.addTo(map);
+					map.on('drag', (e) => {
+						marker.setLngLat(map.getCenter());
+					});
+					map.on('dragend', async (e) => {
+						let coordinates = { lat: marker._lngLat.lat, lon: marker._lngLat.lng, count: 1 };
+						const response = await fetch(
+							'https://suggestions.dadata.ru/suggestions/api/4_1/rs/geolocate/address',
+							{
+								method: 'POST',
+								mode: 'cors',
+								headers: {
+									'Content-Type': 'application/json',
+									Accept: 'application/json',
+									Authorization: 'Token ' + token
+								},
+								body: JSON.stringify(coordinates)
+							}
+						);
+						const data = await response.json();
+						query1 = data.suggestions[0].value;
+					});
 					new maplibregl.Marker({
 						color: '#5BC43A '
 					})
@@ -178,6 +231,7 @@
 		}
 	}
 </script>
+
 <form method="POST" action="?/login">
 	<span class="text-[#a5b3c1]  text-sm">Укажите маршрут</span>
 	<div class=" relative my-3">

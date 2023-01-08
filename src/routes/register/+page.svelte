@@ -7,9 +7,8 @@
 		password: ''
 	};
 	async function loginUser() {
-		const response = await fetch('https://nesttest-production.up.railway.app/auth/signup', {
+		const response = await fetch('http://localhost:3000/auth/signup', {
 			method: 'POST',
-
 			headers: {
 				'Content-Type': 'application/json'
 			},
@@ -20,12 +19,7 @@
 			goto('/login');
 		}
 	}
-	onMount(() => {
-		const redirect = localStorage.getItem('key');
-		if (redirect?.length > 2) {
-			goto('/dashboard');
-		}
-	});
+
 </script>
 
 <div class="px-5 flex flex-col justify-center h-[60vh]">
@@ -46,7 +40,7 @@
 				bind:value={username.password}
 				placeholder="Пароль"
 				class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
-				type="text"
+				type="password"
 				name=""
 				id=""
 				required

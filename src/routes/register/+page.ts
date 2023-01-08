@@ -1,5 +1,6 @@
 import { browser } from '$app/environment';
 import { redirect } from '@sveltejs/kit';
+import { dataset_dev } from 'svelte/internal';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ fetch }) => {
@@ -11,10 +12,14 @@ export const load = (async ({ fetch }) => {
 			}
 		});
 		const data = await response.json();
-		if (data.message === 'Unauthorized') {
+		if(response.ok) {
+			throw redirect(302, '/dashboard');
+		}
+		if (data.message === 'Internal server error') {
+			localStorage.removeItem('key');
 			throw redirect(302, '/login');
 		}
-	}
 
-	return {};
+		return {};
+	}
 }) satisfies PageLoad;

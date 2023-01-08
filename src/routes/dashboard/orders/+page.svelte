@@ -11,7 +11,7 @@
 		addressWhere: string;
 		content: string;
 	}
-	const socket = io('https://nesttest-production.up.railway.app/');
+	const socket = io('http://localhost:3000/');
 
 	let orders: Order[] = [];
 	async function users() {
