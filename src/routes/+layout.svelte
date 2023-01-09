@@ -55,8 +55,8 @@
 		<button on:click={userHidden} class="mb-1">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				width="1.5em"
-				height="2em"
+				width="1.44em"
+				height="1.9em"
 				preserveAspectRatio="xMidYMid meet"
 				viewBox="0 0 24 24"
 				><path
