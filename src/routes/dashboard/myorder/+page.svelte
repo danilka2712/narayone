@@ -22,22 +22,22 @@
 							</h1>
 						</div>
 					</div>
-					<div class="my-3 -b -dashed pb-3 flex justify-between">
+					<div class="my-3 border-b border-dashed pb-3 flex justify-between">
 						<div class="">
-							<span class="text-sm text-[#a5b3c1]">Откуда</span>
+							<span class="text-sm text-[#9B9A9A]">Откуда</span>
 							<p class=" font-medium mb-3">{o.addressWhere}</p>
-							<span class="text-sm text-[#a5b3c1]">Куда</span>
+							<span class="text-sm text-[#9B9A9A]">Куда</span>
 							<p class=" font-medium">{o.addressTo}</p>
 						</div>
 					</div>
 
 					{#if hidden === o.id}
-						<div class="my-3 -b -dashed pb-3">
-							<p class=" text-sm text-[#a5b3c1]">Марка/Модель</p>
+						<div class="my-3 border-b border-dashed pb-3">
+							<p class=" text-sm text-[#9B9A9A]">Марка/Модель</p>
 							<h1 class=" font-medium ">{o.marka} {o.model}</h1>
 						</div>
 						<div class="flex items-center justify-between">
-							<span class="my-4 text-sm text-[#a5b3c1] ">Стоимость:</span>
+							<span class="my-4 text-sm text-[#9B9A9A] ">Стоимость:</span>
 							<p class=" text-lg font-semibold font-sans">{o.price}₽</p>
 						</div>
 					{/if}

@@ -23,7 +23,7 @@
 </script>
 
 <div class="px-5">
-	<div class=" bg-[#5BC43A] h-44 rounded">
+	<div class=" bg-border-[#5BC43A] h-44 rounded">
 		<img class="object-cover rounded w-full h-full" src="padarki.svg" alt="" />
 	</div>
 
@@ -33,7 +33,7 @@
 				<div class="p-6 relative bg-[#FFFFFF] border  border-[#ececec] flex rounded">
 					<div>
 						<p class=" text-lg font-bold mb-2">{item.name}</p>
-						<p class="text-sm text-[#a5b3c1]">
+						<p class="text-sm text-[#b6b6b6]">
 							{@html item.description}
 						</p>
 					</div>

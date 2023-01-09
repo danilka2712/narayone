@@ -89,14 +89,14 @@
 			<div class="  border-[#ececec] border p-4 rounded bg-white  my-4">
 			<p class=" font-medium font-sans">	Контакты водителя</p>
 				<div class=" my-3">
-					<span class="text-sm text-[#a5b3c1]">Имя</span>
+					<span class="text-sm text-[#9B9A9A]">Имя</span>
 					<p class=" mb-2 font-sans ">{orders.author.name}</p>
-					<span class="text-sm text-[#a5b3c1]">Номер телефона</span>
+					<span class="text-sm text-[#9B9A9A]">Номер телефона</span>
 					<p class=" font-sans">{orders.author.phone}</p>
 				</div>
 				<div class="my-3">
 					<div class=" flex items-center gap-2">
-						<a href="" class="bg-[#5BC43A] p-3 mt-2 flex gap-2 justify-center rounded w-full   py-4   font-semibold text-white ">
+						<a href="" class="bg-border-[#5BC43A] p-3 mt-2 flex gap-2 justify-center rounded w-full   py-4   font-semibold text-white ">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="1em"

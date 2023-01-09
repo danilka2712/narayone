@@ -40,11 +40,11 @@
 		<h1 class=" font-bold text-lg my-4 mb-7">Личный кабинет</h1>
 		<div class="flex mb-6  flex-col">
 			<div class="flex relative  mb-6  flex-col">
-				<span class="text-[#a5b3c1] mb-3 text-sm">Ваше имя</span>
+				<span class="text-[#9B9A9A] mb-3 text-sm">Ваше имя</span>
 				<input
 					on:keypress={() => (hiddenName = true)}
 					bind:value={username.name}
-					class="p-4  placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+					class="p-4  placeholder:text-[#9B9A9A]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 					name="name"
 					type="text"
 					required
@@ -56,11 +56,11 @@
 				{/if}
 			</div>
 			<div class=" relative flex flex-col">
-				<span class="text-[#a5b3c1] mb-3 text-sm">Номер телефона</span>
+				<span class="text-[#9B9A9A] mb-3 text-sm">Номер телефона</span>
 				<input
 					on:keypress={() => (hiddenPhone = true)}
 					bind:value={username.phone}
-					class="p-4  placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+					class="p-4  placeholder:text-[#9B9A9A]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 					name="phone"
 					type="tel"
 					required
@@ -73,12 +73,12 @@
 			</div>
 		</div>
 		<div class="flex mb-6  flex-col">
-			<span class="text-[#a5b3c1] mb-3 text-sm">Адрес электронной почты</span>
+			<span class="text-[#9B9A9A] mb-3 text-sm">Адрес электронной почты</span>
 
 			<input
 				disabled
 				bind:value={data.email}
-				class="p-4   placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+				class="p-4   placeholder:text-[#9B9A9A]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 				name="phone"
 				type="tel"
 				required

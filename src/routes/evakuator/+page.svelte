@@ -91,11 +91,11 @@
 			</div>
 
 			<div class="flex mb-6  flex-col">
-				<span class="text-[#a5b3c1] mb-3 text-sm">Контактные данные</span>
+				<span class="text-[#565656] mb-3 text-sm">Контактные данные</span>
 
 				<input
 					placeholder="Номер телефона"
-					class="p-4 focus:-[#5BC43A] placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+					class="p-4 focus:border-[#5BC43A] placeholder:text-[#9B9A9A]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 					use:imask={options}
 					name="phone"
 					type="tel"
@@ -105,7 +105,7 @@
 			</div>
 			<InputAddress />
 			<div class="flex flex-col">
-				<span class="text-[#a5b3c1] mb-3  text-sm">Марка и модель автомобиля</span>
+				<span class="text-[#565656] mb-3  text-sm">Марка и модель автомобиля</span>
 
 				<div class=" flex gap-3 ">
 					<div class=" relative w-1/2 flex items-center">
@@ -139,7 +139,7 @@
 			transition
 			ease-in-out rounded
 			m-0
-			focus:text-gray-700 focus:bg-white focus:-[#5BC43A] focus:outline-none"
+			focus:text-gray-700 focus:bg-white focus:-border-[#5BC43A] focus:outline-none"
 							aria-label="Default select example"
 						>
 							<option class="text-black font-semibold" selected>Марка</option>
@@ -181,7 +181,7 @@
 				transition
 				ease-in-out rounded
 				m-0
-				focus:text-gray-700 focus:bg-white focus:-[#5BC43A] focus:outline-none"
+				focus:text-gray-700 focus:bg-white focus:-border-[#5BC43A] focus:outline-none"
 							aria-label="Default select example"
 						>
 							<option class="text-black font-semibold" selected>Модель</option>
@@ -231,7 +231,7 @@
 		</div>
 		<div class="mt-6 -t-2 -dotted">
 			<div class="flex items-center justify-between">
-				<span class="my-4 text-[#a5b3c1] text">Стоимость:</span>
+				<span class="my-4 text-[#565656] text">Стоимость:</span>
 				<p class=" text-xl font-semibold font-sans">
 					{(user += price)}₽
 				</p>
@@ -256,6 +256,6 @@
 		}
 	}
 	.active {
-		color: #a5b3c1;
+		color: #9B9A9A;
 	}
 </style>

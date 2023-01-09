@@ -43,7 +43,7 @@
 			<input
 				bind:value={username.email}
 				placeholder="Email"
-				class="p-4 placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+				class="p-4 placeholder:text-[#9B9A9A]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 				type="text"
 				name=""
 				id="Email"
@@ -53,7 +53,7 @@
 			<input
 				bind:value={username.password}
 				placeholder="Пароль"
-				class="p-4  placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+				class="p-4  placeholder:text-[#9B9A9A]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 				type="password"
 				name=""
 				id="password"
@@ -62,7 +62,7 @@
 			<p class=" text-sm text-red-500">{errorUser}</p>
 			<button
 				type="submit"
-				class="transition duration-300 hover:bg-[#54b935] ease-in-out bg-[#5BC43A] p-3 rounded w-full   py-4   font-semibold text-white">Войти</button
+				class="transition duration-300 hover:bg-[#54b935] ease-in-out bg-border-[#5BC43A] p-3 rounded w-full   py-4   font-semibold text-white">Войти</button
 			>
 		</div>
 	</form>

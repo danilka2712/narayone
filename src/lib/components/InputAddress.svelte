@@ -233,14 +233,14 @@
 
 {$query}
 <form method="POST" action="?/login">
-	<span class="text-[#a5b3c1]  text-sm">Укажите маршрут</span>
+	<span class="text-[#565656]  text-sm">Укажите маршрут</span>
 	<div class=" relative my-3">
 		<div class=" absolute top-6 left-4 bg-[#090f21] rounded-full w-3 h-3" />
 		<input
 			on:click={() => (hidden = false)}
 			bind:value={$query}
 			placeholder="Лукашевича 25"
-			class="p-4 focus:-[#5BC43A] pl-10 placeholder:text-[#a5b3c1] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+			class="p-4 focus:-border-[#5BC43A] pl-10 placeholder:text-[#9B9A9A] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 			type="text"
 			name="query"
 			id=""
@@ -264,7 +264,7 @@
 			on:click={() => (hidden1 = false)}
 			bind:value={$query1}
 			placeholder="Мира 31"
-			class="p-4 focus:-[#5BC43A] pl-10 placeholder:text-[#a5b3c1] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+			class="p-4 focus:-border-[#5BC43A] pl-10 placeholder:text-[#9B9A9A] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 			type="text"
 			name=""
 			id=""
