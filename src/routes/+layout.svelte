@@ -1,31 +1,58 @@
 <script land="ts">
 	import '../app.css';
 	import 'mapbox-gl/dist/mapbox-gl.css';
+	import { clickOutside } from '../click_outside.js';
+	let hidden = false;
+	function userHidden() {
+		menuHiiden = false;
+		hidden = !hidden;
+	}
+	let menuHiiden = false;
+	function menuHidden() {
+		hidden = false;
+		menuHiiden = !menuHiiden;
+	}
 </script>
 
-<nav class="flex justify-between p-5">
-	<button class=" relative z-20">
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			class="h-5 w-5"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke="currentColor"
-			><path
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="2"
-				d="M4 6h16M4 12h16M4 18h7"
-			/></svg
-		>
-	</button>
+<nav
+	use:clickOutside
+	on:outclick={() => (hidden = false)}
+	use:clickOutside
+	on:outclick={() => (menuHiiden = false)}
+	class="flex items-center justify-between p-5"
+>
+	<div class="relative z-20">
+		<button on:click={menuHidden} class="">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-5 w-5"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				><path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M4 6h16M4 12h16M4 18h7"
+				/></svg
+			>
+		</button>
+		{#if menuHiiden}
+			<div class="z-20 absolute top-10 bg-white w-44 flex flex-col gap-4 rounded p-5 shadow-sm">
+				<a on:click={menuHidden} href="/about">О нас</a>
+				<a on:click={menuHidden} href="/сontacts">Контакты</a>
+				<a on:click={menuHidden} href="/partner">Стать партнером</a>
+			</div>
+		{/if}
+	</div>
+
 	<div class=" justify-items-center">
 		<a href="/" class="">
-			<img class="w-24 mt-2" src="/logo.svg" alt="" />
+			<img class="w-24" src="/logo.svg" alt="" />
 		</a>
 	</div>
-	<div class="flex space-x-4 justify-end">
-		<a href="/register" class="">
+	<div class="flex space-x-4 relative justify-end">
+		<button on:click={userHidden} class="">
 			<div class=" relative">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +66,14 @@
 					/></svg
 				>
 			</div>
-		</a>
+		</button>
+		{#if hidden}
+			<div class="z-20 absolute top-10 bg-white w-44 flex flex-col gap-4 rounded p-5 shadow-sm">
+				<a on:click={userHidden} href="/dashboard">Личный кабинет</a>
+				<a on:click={userHidden} href="/dashboard/orders">Новые заявки</a>
+				<a on:click={userHidden} href="/dashboard/myorder">Принятые заявки</a>
+			</div>
+		{/if}
 	</div>
 </nav>
 
