@@ -2,31 +2,25 @@
 	const items = [
 		{
 			name: 'Эвакуатор',
-			description: 'Доставим ваш автомобиль в любой точку России',
+			description: 'Доставим ваш автомобиль <br/> в любой точку России',
 			img: 'car3.svg',
 			href: '/evakuator'
 		},
+
 		{
-			name: 'Грузоперевозка',
-			description: 'Доставим ваш автомобиль в любой точку России',
-			img: 'car1.svg',
-			href: '/'
-		},
-		{
-			name: 'Отогрев авто',
-			description: 'Доставим ваш автомобиль в любой точку России',
+			name: 'Помощь на дороге',
+			description: 'Лучшие специалисты <br/> в вашем районе.',
 			img: 'car2.svg',
 			href: '/'
 		},
 		{
 			name: 'Автоподбор',
-			description: 'Доставим ваш автомобиль в любой точку России',
+			description: 'Подберем для вас лучший <br/> вариант на рынке',
 			img: 'car4.svg',
 			href: '/'
 		}
 	];
 </script>
-
 
 <div class="px-5">
 	<div class=" bg-[#5BC43A] h-44 rounded">
@@ -36,11 +30,11 @@
 	<div class=" flex flex-col gap-3 mt-3 mb-8">
 		{#each items as item}
 			<a data-sveltekit-reload href={item.href}>
-				<div class="p-6 relative bg-[#FFFFFF]  border border-[#D0D2D3]/40 flex rounded">
+				<div class="p-6 relative bg-[#FFFFFF] border  border-[#ececec] flex rounded">
 					<div>
 						<p class=" text-lg font-bold mb-2">{item.name}</p>
 						<p class="text-sm text-[#a5b3c1]">
-							Доставим ваш автомобиль <br /> в любой точку России
+							{@html item.description}
 						</p>
 					</div>
 					<div class="">

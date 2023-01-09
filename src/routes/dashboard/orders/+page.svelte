@@ -45,14 +45,14 @@
 <div class="">
 	{#each orders as o}
 		{#if o.content !== 'Выполнено'}
-			<div class="mb-5 border border-[#D0D2D3]/40 rounded  mx-4 p-4 bg-white ">
+			<div class="mb-5  border-[#ececec] border rounded  mx-4 p-4 bg-white ">
 				<div class="">
 					<div class="flex items-center gap-2">
 						<div class=" bg-[#5BC43A] rounded-full w-2 h-2" />
 						<h1 class="">{o.content}</h1>
 					</div>
 				</div>
-				<div class="my-3 border-b border-dashed pb-3 flex justify-between">
+				<div class="my-3 -b -dashed pb-3 flex justify-between">
 					<div class="">
 						<span class="text-sm text-[#a5b3c1]">Откуда</span>
 						<p class=" font-medium mb-3">{o.addressWhere}</p>
@@ -60,7 +60,7 @@
 						<p class=" font-medium">{o.addressTo}</p>
 					</div>
 				</div>
-				<div class="my-3 border-b border-dashed pb-3">
+				<div class="my-3 -b -dashed pb-3">
 					<p class=" text-sm text-[#a5b3c1]">Марка/Модель</p>
 					<h1 class=" font-medium ">{o.marka} {o.model}</h1>
 				</div>

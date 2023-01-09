@@ -12,7 +12,7 @@
 			<h1 class=" font-bold text-lg my-4 mb-7">Принятые заявки</h1>
 
 			{#each data.Product as o}
-				<div class="mb-5 border border-[#D0D2D3]/40 rounded  p-5 bg-white ">
+				<div class="mb-5  border-[#ececec] border rounded  p-5 bg-white ">
 					<div class="">
 						<div class="flex items-center gap-2">
 							<div class=" bg-[#5BC43A] rounded-full w-2 h-2" />
@@ -22,7 +22,7 @@
 							</h1>
 						</div>
 					</div>
-					<div class="my-3 border-b border-dashed pb-3 flex justify-between">
+					<div class="my-3 -b -dashed pb-3 flex justify-between">
 						<div class="">
 							<span class="text-sm text-[#a5b3c1]">Откуда</span>
 							<p class=" font-medium mb-3">{o.addressWhere}</p>
@@ -32,7 +32,7 @@
 					</div>
 
 					{#if hidden === o.id}
-						<div class="my-3 border-b border-dashed pb-3">
+						<div class="my-3 -b -dashed pb-3">
 							<p class=" text-sm text-[#a5b3c1]">Марка/Модель</p>
 							<h1 class=" font-medium ">{o.marka} {o.model}</h1>
 						</div>

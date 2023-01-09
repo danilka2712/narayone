@@ -240,7 +240,7 @@
 			on:click={() => (hidden = false)}
 			bind:value={$query}
 			placeholder="Лукашевича 25"
-			class="p-4 focus:border-[#5BC43A] pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/40  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+			class="p-4 focus:-[#5BC43A] pl-10 placeholder:text-[#a5b3c1] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 			type="text"
 			name="query"
 			id=""
@@ -249,7 +249,7 @@
 			>Карта</button
 		>
 		{#if hidden}
-			<div class=" absolute top-14 border-[#D0D2D3]/40 border-b border-x z-20 w-full  bg-white p-4">
+			<div class=" absolute top-14 border-[#ececec] border -b -x z-20 w-full  bg-white p-4">
 				<div class="flex flex-col gap-5">
 					{#each result as r}
 						<button class="flex text-left" on:click|preventDefault={() => addHidden(r)}>{r}</button>
@@ -264,14 +264,14 @@
 			on:click={() => (hidden1 = false)}
 			bind:value={$query1}
 			placeholder="Мира 31"
-			class="p-4 focus:border-[#5BC43A] pl-10 placeholder:text-[#a5b3c1] border-[#D0D2D3]/40  w-full font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+			class="p-4 focus:-[#5BC43A] pl-10 placeholder:text-[#a5b3c1] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 			type="text"
 			name=""
 			id=""
 		/>
 		{#if hidden1}
 			<div
-				class=" absolute h-fit  top-14 border-[#D0D2D3]/40 border-b border-x z-20 w-full  bg-white p-4"
+				class=" absolute h-fit  top-14 border-[#ececec] border -b -x z-20 w-full  bg-white p-4"
 			>
 				<div class="flex flex-col gap-5">
 					{#each result1 as r}

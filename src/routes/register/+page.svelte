@@ -29,7 +29,7 @@
 			<input
 				bind:value={username.email}
 				placeholder="Email"
-				class="p-4 focus:border-[#5BC43A] placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+				class="p-4 focus:-[#5BC43A] placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 				type="text"
 				name=""
 				id=""
@@ -39,7 +39,7 @@
 			<input
 				bind:value={username.password}
 				placeholder="Пароль"
-				class="p-4 focus:border-[#5BC43A] placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+				class="p-4 focus:-[#5BC43A] placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 				type="password"
 				name=""
 				id=""

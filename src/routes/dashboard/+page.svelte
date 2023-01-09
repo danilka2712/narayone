@@ -44,7 +44,7 @@
 				<input
 					on:keypress={() => (hiddenName = true)}
 					bind:value={username.name}
-					class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+					class="p-4  placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 					name="name"
 					type="text"
 					required
@@ -60,7 +60,7 @@
 				<input
 					on:keypress={() => (hiddenPhone = true)}
 					bind:value={username.phone}
-					class="p-4  placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+					class="p-4  placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 					name="phone"
 					type="tel"
 					required
@@ -78,7 +78,7 @@
 			<input
 				disabled
 				bind:value={data.email}
-				class="p-4   placeholder:text-[#a5b3c1]   border-[#D0D2D3]/40   font-sans focus:border-[#5BC43A ]  focus:outline-none border py-4 rounded"
+				class="p-4   placeholder:text-[#a5b3c1]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 				name="phone"
 				type="tel"
 				required

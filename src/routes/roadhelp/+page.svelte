@@ -1,9 +1,6 @@
 <script lang="ts">
-	import InputAddress from '$lib/components/InputAddress.svelte';
-	import carModel from './carModel.json';
-	import type { PageData, ActionData } from './$types';
 	import { imask } from 'svelte-imask';
-	import { query, query1 } from '../../store.js';
+	import carModel from './carModel.json';
 
 	const options = {
 		mask: '+{7}(000)000-00-00'
@@ -12,78 +9,11 @@
 	function complete({ detail: imask }) {
 		phone = imask._value;
 	}
-	export let data: PageData;
 
-	export let form: ActionData;
-
-	import { address } from '../../store.js';
-	function brands() {
-		return carModel.map((car) => car.brand);
-	}
-	let selected = 'Марка';
-	let selectedModels = 'Модель';
-
-	let menu = [
-		{ name: 'Вытащить с кувета', price: 1500 },
-		{ name: 'Заблокировано колесо', price: 500 },
-		{ name: 'Заблокирован руль', price: 1000 },
-		{ name: 'Нет крюка', price: 300 },
-		{ name: 'Вытащить с парковки/гаража', price: 1000 }
-	];
-
-	function models(cars: any) {
-		carModel.find(({ brand, models }) => {
-			if (brand === cars) {
-				model = models;
-			}
-			return;
-		});
-	}
-	let model: Models | any = [];
-	type Models = {
-		brand: string;
-		models: string;
-	};
-
-	let hiddenPogruz = false;
-	import { io } from 'socket.io-client';
-	import { goto } from '$app/navigation';
-	type Orders = [
-		{
-			id: number;
-			phone: string;
-			content?: string;
-			price: string
-		}
-	];
 	let phone: string = '';
-	const socket = io('https://nesttest-production.up.railway.app/');
-
-	async function sendMessage() {
-		await socket.emit(
-			'createChat',
-			{
-				phone: phone,
-				marka: selected,
-				model: selectedModels,
-				addressWhere: $query,
-				addressTo: $query1,
-				price: price.toString()
-			},
-			(response: Orders) => {
-				goto(`order/${response.id}`);
-			}
-		);
-	}
-	let price = 2390;
-	let selection = [0];
-	let user;
-	$: if (selection.length >= 1) {
-		user = selection.reduce((a, b) => Number(a) + Number(b));
-	}
 </script>
 
-<form on:submit={sendMessage}>
+<form>
 	<div class="px-5 flex justify-between flex-col">
 		<div class="">
 			<div>
@@ -103,7 +33,6 @@
 					on:complete={complete}
 				/>
 			</div>
-			<InputAddress />
 			<div class="flex flex-col">
 				<span class="text-[#a5b3c1] mb-3  text-sm">Марка и модель автомобиля</span>
 
@@ -124,9 +53,6 @@
 							<polyline points="18 15 12 9 6 15" />
 						</svg>
 						<select
-							class:active={selected === 'Марка'}
-							bind:value={selected}
-							on:change={() => models(selected)}
 							class="form-select appearance-none
 			block
 			w-full

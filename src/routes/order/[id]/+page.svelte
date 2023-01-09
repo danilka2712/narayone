@@ -86,7 +86,7 @@
 				<p>В течение нескольких секунд с вами свяжится водитель для подверждения заказа</p>
 			</div>
 
-			<div class=" border border-[#D0D2D3]/40 p-4 rounded bg-white  my-4">
+			<div class="  border-[#ececec] border p-4 rounded bg-white  my-4">
 			<p class=" font-medium font-sans">	Контакты водителя</p>
 				<div class=" my-3">
 					<span class="text-sm text-[#a5b3c1]">Имя</span>
@@ -125,7 +125,7 @@
 	<div>
 		<button
 		type="submit"
-		class=" bg-[#f14848] border p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
+		class=" bg-[#f14848]  p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
 		>Отменить заявку</button
 	>
 	</div>
