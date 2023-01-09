@@ -92,10 +92,9 @@
 
 			<div class="flex mb-6  flex-col">
 				<span class="text-[#565656] mb-3 text-sm">Контактные данные</span>
-
 				<input
 					placeholder="Номер телефона"
-					class="p-4 focus:border-[#5BC43A] placeholder:text-[#9B9A9A]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+					class="p-4 focus:border-[#5BC43A] placeholder:text-[#aab1bc]   border-[#ececec] border   font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 					use:imask={options}
 					name="phone"
 					type="tel"
@@ -135,11 +134,11 @@
 			text-base
 			font-normal
 			bg-white bg-clip-padding bg-no-repeat
-			  -solid border-[#ececec] border 
+			border-solid border-[#ececec] border 
 			transition
 			ease-in-out rounded
 			m-0
-			focus:text-gray-700 focus:bg-white focus:-border-[#5BC43A] focus:outline-none"
+			focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
 							aria-label="Default select example"
 						>
 							<option class="text-black font-semibold" selected>Марка</option>
@@ -151,7 +150,7 @@
 							{/each}
 						</select>
 					</div>
-					<div class="a  w-1/2 relative flex items-center">
+					<div class=" w-1/2 relative flex items-center">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="100%"
@@ -177,11 +176,11 @@
 				text-base
 				font-normal
 				bg-white bg-clip-padding bg-no-repeat
-				 -solid border-[#ececec] border 
+				border-solid border-[#ececec] border 
 				transition
 				ease-in-out rounded
 				m-0
-				focus:text-gray-700 focus:bg-white focus:-border-[#5BC43A] focus:outline-none"
+				focus:text-gray-700 focus:bg-white focus:border-[#5BC43A] focus:outline-none"
 							aria-label="Default select example"
 						>
 							<option class="text-black font-semibold" selected>Модель</option>
@@ -256,6 +255,6 @@
 		}
 	}
 	.active {
-		color: #9B9A9A;
+		color: #aab1bc;
 	}
 </style>

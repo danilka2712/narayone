@@ -16,8 +16,8 @@
 					<div class="">
 						<div class="flex items-center gap-2">
 							<div class=" bg-[#5BC43A] rounded-full w-2 h-2" />
-							<h1 class="font-sans">Заявка принята:</h1>
-							<h1 class="font-sans">
+							<h1 class="font-sans font-medium">Заявка принята:</h1>
+							<h1 class="font-sans font-medium">
 								{new Date(o.createdAt).toLocaleString(['rus', 'id'])}
 							</h1>
 						</div>
@@ -25,9 +25,9 @@
 					<div class="my-3 border-b border-dashed pb-3 flex justify-between">
 						<div class="">
 							<span class="text-sm text-[#9B9A9A]">Откуда</span>
-							<p class=" font-medium mb-3">{o.addressWhere}</p>
+							<p class=" font-sans  mb-3">{o.addressWhere}</p>
 							<span class="text-sm text-[#9B9A9A]">Куда</span>
-							<p class=" font-medium">{o.addressTo}</p>
+							<p class="font-sans ">{o.addressTo}</p>
 						</div>
 					</div>
 

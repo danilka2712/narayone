@@ -240,7 +240,7 @@
 			on:click={() => (hidden = false)}
 			bind:value={$query}
 			placeholder="Лукашевича 25"
-			class="p-4 focus:-border-[#5BC43A] pl-10 placeholder:text-[#9B9A9A] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+			class="p-4 focus:border-[#5BC43A] pl-10  placeholder:text-[#aab1bc] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 			type="text"
 			name="query"
 			id=""
@@ -264,7 +264,7 @@
 			on:click={() => (hidden1 = false)}
 			bind:value={$query1}
 			placeholder="Мира 31"
-			class="p-4 focus:-border-[#5BC43A] pl-10 placeholder:text-[#9B9A9A] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
+			class="p-4 focus:border-[#5BC43A] pl-10  placeholder:text-[#aab1bc] border-[#ececec] border  w-full font-sans focus:-[#5BC43A ]  focus:outline-none  py-4 rounded"
 			type="text"
 			name=""
 			id=""

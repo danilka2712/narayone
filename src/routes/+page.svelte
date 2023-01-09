@@ -32,8 +32,8 @@
 			<a data-sveltekit-reload href={item.href}>
 				<div class="p-6 relative bg-[#FFFFFF] border  border-[#ececec] flex rounded">
 					<div>
-						<p class=" text-lg font-bold mb-2">{item.name}</p>
-						<p class="text-sm text-[#b6b6b6]">
+						<p class="  text-lg font-semibold mb-2">{item.name}</p>
+						<p class="text-sm text-[#aab1bc]">
 							{@html item.description}
 						</p>
 					</div>
