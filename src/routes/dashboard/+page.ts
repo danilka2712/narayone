@@ -18,7 +18,6 @@ export const load = (async ({ fetch }) => {
 			localStorage.removeItem('key');
 			throw redirect(302, '/login');
 		}
-
 		return {
 			id: data.id,
 			email: data.email,
