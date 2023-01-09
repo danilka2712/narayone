@@ -4,7 +4,7 @@ import type { PageLoad } from './$types';
 
 export const load = (async ({ fetch }) => {
 	if (browser) {
-		const response = await fetch('https://nesttest-production.up.railway.app/users/me', {
+		const response = await fetch('http://localhost:3000/users/me', {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('key')}`
@@ -20,7 +20,7 @@ export const load = (async ({ fetch }) => {
 		}
 
 		return {
-		
+			id: data.id
 		};
 	}
 }) satisfies PageLoad;

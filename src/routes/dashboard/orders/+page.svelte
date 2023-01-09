@@ -1,18 +1,22 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { io } from 'socket.io-client';
-
+	import type { PageData } from './$types';
+	export let data: PageData;
+	const dataId = data.id;
 	interface Order {
 		id: number;
 		createdAt: string;
 		phone: string;
 		marka: string;
+		authorId: number;
 		model: string;
 		addressTo: string;
 		addressWhere: string;
 		content: string;
 		price: string;
 	}
-	const socket = io('https://nesttest-production.up.railway.app/');
+	const socket = io('http://localhost:3000/');
 
 	let orders: Order[] = [];
 	async function users() {
@@ -32,7 +36,9 @@
 	});
 
 	function addSumbit(id: number) {
-		socket.emit('updateChat', { id: Number(id) });
+		socket.emit('updateChat', { id: Number(id), authorId: Number(dataId) }, () => {
+			goto('/dashboard/myorder');
+		});
 	}
 </script>
 

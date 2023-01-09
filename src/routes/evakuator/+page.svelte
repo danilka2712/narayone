@@ -57,7 +57,7 @@
 		}
 	];
 	let phone: string = '';
-	const socket = io('https://nesttest-production.up.railway.app/');
+	const socket = io('http://localhost:3000/');
 
 	async function sendMessage() {
 		await socket.emit(

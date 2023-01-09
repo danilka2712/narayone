@@ -14,7 +14,7 @@
 		phone: data.phone
 	};
 	async function updateUser() {
-		const response = await fetch(`https://nesttest-production.up.railway.app/users/${String(dataId)}`, {
+		const response = await fetch(`http://localhost:3000/users/${String(dataId)}`, {
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('key')}`,

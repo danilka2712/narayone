@@ -15,7 +15,7 @@
 
 	let id: number = Number($page.params.id);
 
-	const socket = io('https://nesttest-production.up.railway.app/');
+	const socket = io('http://localhost:3000/');
 	let orders: Order[] = [];
 	async function users() {
 		await socket.emit('findOneChat', { id: id }, (response: Order[]) => {

@@ -1,11 +1,10 @@
 import { browser } from '$app/environment';
 import { redirect } from '@sveltejs/kit';
-import { dataset_dev } from 'svelte/internal';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ fetch }) => {
 	if (browser) {
-		const response = await fetch('https://nesttest-production.up.railway.app/users/me', {
+		const response = await fetch('http://localhost:3000/users/me', {
 			method: 'GET',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('key')}`
