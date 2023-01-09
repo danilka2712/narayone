@@ -4,11 +4,9 @@
 	import type { PageData, ActionData } from './$types';
 	import { imask } from 'svelte-imask';
 	import { query, query1 } from '../../store.js';
-
 	const options = {
 		mask: '+{7}(000)000-00-00'
 	};
-
 	function complete({ detail: imask }) {
 		phone = imask._value;
 	}
@@ -16,7 +14,6 @@
 
 	export let form: ActionData;
 
-	import { address } from '../../store.js';
 	function brands() {
 		return carModel.map((car) => car.brand);
 	}
@@ -26,7 +23,7 @@
 	let menu = [
 		{ name: 'Вытащить с кувета', price: 1500 },
 		{ name: 'Заблокировано колесо', price: 500 },
-		{ name: 'Заблокирован руль', price: 1000 },
+		{ name: 'Заблокирован руль', price: 1050 },
 		{ name: 'Нет крюка', price: 300 },
 		{ name: 'Вытащить с парковки/гаража', price: 1000 }
 	];
@@ -53,12 +50,11 @@
 			id: number;
 			phone: string;
 			content?: string;
-			price: string
+			price: string;
 		}
 	];
 	let phone: string = '';
 	const socket = io('https://nesttest-production.up.railway.app/');
-
 	async function sendMessage() {
 		await socket.emit(
 			'createChat',
@@ -68,7 +64,7 @@
 				model: selectedModels,
 				addressWhere: $query,
 				addressTo: $query1,
-				price: price.toString()
+				price: `${price + number}`
 			},
 			(response: Orders) => {
 				goto(`order/${response.id}`);
@@ -77,9 +73,12 @@
 	}
 	let price = 2390;
 	let selection = [0];
-	let user;
+	let number = 0;
 	$: if (selection.length >= 1) {
-		user = selection.reduce((a, b) => Number(a) + Number(b));
+		number = selection.reduce((a, b) => Number(a) + Number(b));
+	}
+	$: if (selection.length === 0) {
+		number = 0;
 	}
 </script>
 
@@ -228,11 +227,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="mt-6 -t-2 -dotted">
+		<div class="mt-6 border-t-2 border-dotted">
 			<div class="flex items-center justify-between">
-				<span class="my-4 text-[#565656] text">Стоимость:</span>
+				<span class="my-4">Стоимость:</span>
 				<p class=" text-xl font-semibold font-sans">
-					{(user += price)}₽
+					{(number += price)}₽
 				</p>
 			</div>
 			<button

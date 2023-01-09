@@ -71,7 +71,7 @@
 				<div class="flex justify-between">
 					<button
 						on:click={() => addSumbit(o.id)}
-						class=" bg-border-[#5BC43A] p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
+						class=" bg-[#5BC43A] p-3 mt-2 rounded w-full   py-4   font-semibold text-white"
 						>Принять</button
 					>
 				</div>

@@ -245,7 +245,7 @@
 			name="query"
 			id=""
 		/>
-		<button class=" bg-white p-3 top-1 absolute  right-1" on:click|preventDefault={mapActive}
+		<button class=" bg-white p-3 top-[0.45rem] absolute text-sm  right-1" on:click|preventDefault={mapActive}
 			>Карта</button
 		>
 		{#if hidden}
