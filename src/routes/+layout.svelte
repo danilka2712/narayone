@@ -46,12 +46,12 @@
 		{/if}
 	</div>
 
-	<div class=" justify-items-center">
+	<div class="mb-1">
 		<a href="/" class="">
 			<img class="w-24" src="/logo.svg" alt="" />
 		</a>
 	</div>
-	<div class="flex space-x-4 relative justify-end">
+	<div class="flex relative justify-end">
 		<button on:click={userHidden} class="">
 			<div class=" relative">
 				<svg
