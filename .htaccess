@@ -1,5 +1,8 @@
 <IfModule mod_expires.c>
 ExpiresActive On
+AddType image/svg+xml .svg
+AddOutputFilterByType DEFLATE image/svg+xml
+ExpiresByType image/svg+xml "access 1 month"
 ExpiresByType image/jpg "access 1 month"
 ExpiresByType image/jpeg "access 1 month"
 ExpiresByType image/gif "access 1 month"
