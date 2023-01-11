@@ -85,10 +85,9 @@
 <form on:submit={sendMessage}>
 	<div class="px-5 flex justify-between flex-col">
 		<div class="">
-			<div>
-				<h1 class=" font-bold text-lg my-4 mb-7">Заказать эвакуатор</h1>
+			<div class="mb-6">
+				<h3 class="text-3xl font-normal">Эвакуатор</h3>
 			</div>
-
 			<div class="flex mb-6  flex-col">
 				<span class="text-[#565656] mb-3 text-sm">Контактные данные</span>
 				<input
@@ -244,15 +243,6 @@
 </form>
 
 <style>
-	@media all and (display-mode: standalone) {
-		.box {
-			position: fixed;
-			left: 20px;
-			bottom: 100px;
-			margin: 0;
-			width: 90%;
-		}
-	}
 	.active {
 		color: #aab1bc;
 	}

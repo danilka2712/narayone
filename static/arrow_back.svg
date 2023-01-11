@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <g id="arrow_back">
+    <g id="Outlined--Navigation--arrow_back">
+      <path d="M0 0L20 0L20 20L0 20L0 0Z" id="Path" fill="none" fill-rule="evenodd" stroke="none" />
+      <path d="M17.5 9.16667L5.69167 9.16667L10.35 4.50833L9.16667 3.33333L2.5 10L9.16667 16.6667L10.3417 15.4917L5.69167 10.8333L17.5 10.8333L17.5 9.16667Z" id="🔹-Icon-Color" fill="#1D1D1D" fill-rule="evenodd" stroke="none" />
+    </g>
+  </g>
+</svg>
