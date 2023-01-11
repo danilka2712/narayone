@@ -86,7 +86,7 @@
 	<div class="px-5 flex justify-between flex-col">
 		<div class="">
 			<div class="mb-6">
-				<h3 class="text-3xl font-normal">Эвакуатор</h3>
+				<h3 class="text-2xl font-medium">Эвакуатор</h3>
 			</div>
 			<div class="flex mb-6  flex-col">
 				<span class="text-[#565656] mb-3 text-sm">Контактные данные</span>

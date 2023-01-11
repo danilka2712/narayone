@@ -15,7 +15,7 @@
 </script>
 
 
-<nav class="container flex items-center justify-between  mx-auto px-5 mb-4  h-[7vh] py-4">
+<nav class="container flex items-center justify-between  mx-auto px-5 mb-4  h-[7vh] py-8">
 	<a href="/">
 		<img width="101px" src="/logo.svg" alt="" />
 	</a>
